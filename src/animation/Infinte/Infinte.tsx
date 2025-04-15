@@ -1,5 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
-
 const Infinite = () => {
   const [positions, setPositions] = useState([
     { left: '-30%' },
@@ -13,12 +11,13 @@ const Infinite = () => {
   const boxWidth = 64;
   const animationRef = useRef(null);
 
+  // Updated box contents with Indian legal statistics
   const boxContents = [
-    { title: "200+", detail: "Certified doctors in Aurleaf" },
-    { title: "400+", detail: "AI-generated Ayurvedic diet plans for various diseases" },
-    { title: "100+", detail: "Yoga exercises to cure diseases" },
-    { title: "1000+", detail: "Certified hospitals & clinics near you" },
-    { title: "250+", detail: "Certified medical products" }
+    { title: "25+", detail: "High Courts across India serving justice" },
+    { title: "672+", detail: "District Courts providing local legal remedies" },
+    { title: "5000+", detail: "Legal aid clinics offering free consultation" },
+    { title: "100K+", detail: "Registered advocates to represent your case" },
+    { title: "50+", detail: "Legal literacy programs nationwide" }
   ];
 
   useEffect(() => {
@@ -54,12 +53,12 @@ const Infinite = () => {
   };
 
   return (
-    <div className="relative w-full h-72 bg-gradient-to-t from-gray-950 via-gray-800 to-transparent overflow-hidden flex items-center">
+    <div className="relative w-full h-72 bg-gradient-to-t from-indigo-900 to-blue-800 overflow-hidden flex items-center">
       {positions.map((box, index) => (
         <div
           key={index}
-          className="absolute h-36 w-48 sm:h-48 sm:w-56 md:h-64 md:w-64 rounded-xl bg-gray-800 flex flex-col items-center justify-center p-4 
-          shadow-2xl text-white transform transition-all duration-300 hover:shadow-green-500/50 hover:scale-105"
+          className="absolute h-36 w-48 sm:h-48 sm:w-56 md:h-64 md:w-64 rounded-xl bg-white flex flex-col items-center justify-center p-4 
+          shadow-xl text-gray-800 transform transition-all duration-300 hover:shadow-amber-500/50 hover:scale-105 border-l-4 border-amber-500"
           style={{
             left: box.left,
             top: '50%',
@@ -70,10 +69,10 @@ const Infinite = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-400 tracking-wide">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-600 tracking-wide font-serif">
             {boxContents[index].title}
           </h1>
-          <p className="text-xs sm:text-sm md:text-base text-center text-gray-300">
+          <p className="text-xs sm:text-sm md:text-base text-center text-gray-700 font-sans">
             {boxContents[index].detail}
           </p>
         </div>
@@ -81,5 +80,3 @@ const Infinite = () => {
     </div>
   );
 };
-
-export default Infinite;

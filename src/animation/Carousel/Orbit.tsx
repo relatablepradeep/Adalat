@@ -2,27 +2,27 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import "./Carousel.css";
 
-const items = ["One", "Two", "Three", "Four", "Five", "Six"];
+const items = ["Labour Law", "Criminal Law", "Family Law", "Corporate Law", "Agriculture Law", "Constitutional Law"];
 
-const Orbit= () => {
+const Orbit = () => {
   const carouselRef = useRef(null);
   const [angle, setAngle] = useState(0);
   const startXRef = useRef(0);
   const isDragging = useRef(false);
-  const [isHovered, setIsHovered] = useState(false); // State to track hover status
+  const [isHovered, setIsHovered] = useState(false);
 
   // Auto-rotation logic with hover pause
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isDragging.current && !isHovered) { // Pause when hovering
+      if (!isDragging.current && !isHovered) {
         const newAngle = angle + 1;
         setAngle(newAngle);
         rotateCarousel(newAngle);
       }
-    }, 40); // adjust for speed
+    }, 40);
 
     return () => clearInterval(interval);
-  }, [angle, isHovered]); // Re-run the effect when angle or hover status changes
+  }, [angle, isHovered]);
 
   const rotateCarousel = (newAngle) => {
     gsap.to(carouselRef.current, {
@@ -54,12 +54,6 @@ const Orbit= () => {
   };
 
   return (
-
-
-
-    <>
-
-
     <div className="scene">
       <div
         className="carousel"
@@ -75,8 +69,8 @@ const Orbit= () => {
               style={{
                 transform: `rotateY(${rotation}deg) translateZ(400px)`,
               }}
-              onMouseEnter={() => setIsHovered(true)}  // Pause on hover
-              onMouseLeave={() => setIsHovered(false)} // Resume after hover
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               {text}
             </div>
@@ -84,10 +78,6 @@ const Orbit= () => {
         })}
       </div>
     </div>
-
-
-
-    </>
   );
 };
 

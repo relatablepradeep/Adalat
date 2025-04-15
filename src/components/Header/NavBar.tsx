@@ -1,11 +1,9 @@
-import {Link,NavLink} from 'react-router'
+import { Link, NavLink } from 'react-router';
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'; // Importing social media icons
-
-
 
 export default function NavBar() {
   return (
-    <div className="w-full">
+    <>
       {/* Fixed Top Navbar */}
       <div className="w-full fixed top-0 bg-white shadow-lg z-50">
         {/* Top Logo and Name Section */}
@@ -54,8 +52,8 @@ export default function NavBar() {
         </div>
       </div>
 
-      {/* Add margin/padding to offset fixed navbar height */}
-      <div className="h-[160px]" /> {/* Adjust based on navbar height */}
-    </div>
+      {/* Add margin to offset the height of fixed navbar */}
+      <div className="h-28" /> {/* Adjust height if your navbar is taller or shorter */}
+    </>
   );
 }
