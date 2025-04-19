@@ -1,5 +1,6 @@
 import {Outlet} from 'react-router-dom'
 import Navbar from './Components/Headers/Navbar'
+import Footer from './Components/Footer/Footer'
 
 export default function Root(){
 
@@ -8,9 +9,13 @@ export default function Root(){
 
         <>
 
-<Navbar/>
-
-<Outlet/>
+<div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
         
         
         </>
