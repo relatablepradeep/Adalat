@@ -1,4 +1,5 @@
 import Sliders from "../../Animation/Sliders/Sliders";
+import TranslateText from "../Translator/TranslateText";
 
 export default function Home() {
 
@@ -7,6 +8,9 @@ export default function Home() {
         <>
 
             <Sliders />
+
+
+            <TranslateText/>
 
 
         </>

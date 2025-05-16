@@ -1,0 +1,288 @@
+[
+  {
+    "state": "Delhi",
+    "organizations": [
+      {
+        "name": "Jagori",
+        "focus_area": "Women's Rights",
+        "address": "C-54, South Extension, Delhi – 110049",
+        "phone": "011-24616483"
+      },
+      {
+        "name": "Chhanv Foundation",
+        "focus_area": "Acid Attack Survivors",
+        "address": "Lajpat Nagar, Delhi",
+        "phone": "9643555566"
+      },
+      {
+        "name": "Human Rights Law Network (HRLN)",
+        "focus_area": "Legal Aid",
+        "address": "Jungpura, Delhi",
+        "phone": "011-24374501"
+      },
+      {
+        "name": "Ekta Shakti Foundation",
+        "focus_area": "Farmer Rights",
+        "address": "Dwarka, Delhi",
+        "phone": "9873543210"
+      },
+      {
+        "name": "All India Women's Conference",
+        "focus_area": "Women's Rights",
+        "address": "Mandi House, Delhi",
+        "phone": "011-23361700"
+      },
+      {
+        "name": "Centre for Social Research",
+        "focus_area": "Women's Rights",
+        "address": "Vasant Kunj, Delhi",
+        "phone": "011-26899998"
+      },
+      {
+        "name": "Action India",
+        "focus_area": "Women's Rights",
+        "address": "Delhi",
+        "phone": "011-23619191"
+      },
+      {
+        "name": "Ekta Parishad",
+        "focus_area": "Land Rights",
+        "address": "Delhi",
+        "phone": "011-26561381"
+      }
+    ]
+  },
+  {
+    "state": "Uttar Pradesh",
+    "organizations": [
+      {
+        "name": "Sheroes Hangout",
+        "focus_area": "Acid Attack Survivors",
+        "address": "Taj Road, Agra",
+        "phone": "0562-2231116"
+      },
+      {
+        "name": "Guria",
+        "focus_area": "Anti-Trafficking",
+        "address": "Safed Colony, Lucknow",
+        "phone": "0522-2740087"
+      },
+      {
+        "name": "Kisan Jagriti Manch",
+        "focus_area": "Farmer Rights",
+        "address": "Hazratganj, Lucknow",
+        "phone": "9415234567"
+      }
+    ]
+  },
+  {
+    "state": "Haryana",
+    "organizations": [
+      {
+        "name": "Sakshi Women’s Resource Centre",
+        "focus_area": "Women's Rights",
+        "address": "Sector 14, Gurgaon",
+        "phone": "0124-2345678"
+      },
+      {
+        "name": "Kisan Sangharsh Samiti",
+        "focus_area": "Farmer Rights",
+        "address": "Model Town, Rohtak",
+        "phone": "9056784321"
+      }
+    ]
+  },
+  {
+    "state": "Punjab",
+    "organizations": [
+      {
+        "name": "Punjab Women’s Helpline",
+        "focus_area": "Women's Rights",
+        "address": "Sector 34, Chandigarh",
+        "phone": "0172-2605678"
+      },
+      {
+        "name": "Bhartiya Kisan Union",
+        "focus_area": "Farmer Rights",
+        "address": "Miller Ganj, Ludhiana",
+        "phone": "9876543210"
+      }
+    ]
+  },
+  {
+    "state": "Maharashtra",
+    "organizations": [
+      {
+        "name": "Majlis Manch",
+        "focus_area": "Legal Aid",
+        "address": "Marine Lines, Mumbai",
+        "phone": "022-22841234"
+      },
+      {
+        "name": "Vanchit Vikas Sanstha",
+        "focus_area": "Land Rights",
+        "address": "Karve Road, Pune",
+        "phone": "020-25442019"
+      },
+      {
+        "name": "Vidarbha Jan Andolan Samiti",
+        "focus_area": "Farmer Suicide",
+        "address": "Amravati Road, Nagpur",
+        "phone": "0712-2567890"
+      }
+    ]
+  },
+  {
+    "state": "Gujarat",
+    "organizations": [
+      {
+        "name": "SEWA",
+        "focus_area": "Women’s Empowerment",
+        "address": "Victoria Garden, Ahmedabad",
+        "phone": "079-25506444"
+      },
+      {
+        "name": "Disha Foundation",
+        "focus_area": "Legal Aid",
+        "address": "Shivalik Plaza, Ahmedabad",
+        "phone": "079-26468220"
+      }
+    ]
+  },
+  {
+    "state": "Rajasthan",
+    "organizations": [
+      {
+        "name": "Vikas Samvad Samiti",
+        "focus_area": "Land Rights",
+        "address": "Tonk Road, Jaipur",
+        "phone": "0141-2345678"
+      },
+      {
+        "name": "Rajasthan Women’s Development Corporation",
+        "focus_area": "Women's Rights",
+        "address": "JLN Marg, Jaipur",
+        "phone": "0141-5112200"
+      }
+    ]
+  },
+  {
+    "state": "Tamil Nadu",
+    "organizations": [
+      {
+        "name": "PCVC",
+        "focus_area": "Domestic Violence",
+        "address": "Adyar, Chennai",
+        "phone": "044-24452901"
+      },
+      {
+        "name": "Uzhavar Ulaippalar Sangam",
+        "focus_area": "Farmer Rights",
+        "address": "Gandhipuram, Coimbatore",
+        "phone": "0422-2345678"
+      }
+    ]
+  },
+  {
+    "state": "Karnataka",
+    "organizations": [
+      {
+        "name": "Vimochana",
+        "focus_area": "Women's Rights",
+        "address": "Infantry Road, Bangalore",
+        "phone": "080-25492781"
+      },
+      {
+        "name": "Karnataka Rajya Raitha Sangha",
+        "focus_area": "Farmer Rights",
+        "address": "Kalavidhi Road, Mysuru",
+        "phone": "0821-2456789"
+      }
+    ]
+  },
+  {
+    "state": "Kerala",
+    "organizations": [
+      {
+        "name": "Sahayi",
+        "focus_area": "Legal Aid",
+        "address": "MG Road, Kochi",
+        "phone": "0484-2356789"
+      },
+      {
+        "name": "Karshaka Sangham",
+        "focus_area": "Farmer Welfare",
+        "address": "Round West, Thrissur",
+        "phone": "0487-2345678"
+      }
+    ]
+  },
+  {
+    "state": "West Bengal",
+    "organizations": [
+      {
+        "name": "Swayam",
+        "focus_area": "Women's Rights",
+        "address": "Bishop Lefroy Road, Kolkata",
+        "phone": "033-22897157"
+      },
+      {
+        "name": "Paschim Banga Khet Majoor Samity",
+        "focus_area": "Land Rights",
+        "address": "Topsia, Kolkata",
+        "phone": "033-23456789"
+      }
+    ]
+  },
+  {
+    "state": "Odisha",
+    "organizations": [
+      {
+        "name": "Aaina",
+        "focus_area": "Women's Rights",
+        "address": "Saheed Nagar, Bhubaneswar",
+        "phone": "0674-2543210"
+      },
+      {
+        "name": "Nirman",
+        "focus_area": "Farmer Support",
+        "address": "Buxi Bazaar, Cuttack",
+        "phone": "0671-2345678"
+      }
+    ]
+  },
+  {
+    "state": "Bihar",
+    "organizations": [
+      {
+        "name": "Adithi",
+        "focus_area": "Women's Empowerment",
+        "address": "Boring Road, Patna",
+        "phone": "0612-2345678"
+      },
+      {
+        "name": "Kisan Jagran Manch",
+        "focus_area": "Farmer Rights",
+        "address": "Saraiyaganj, Muzaffarpur",
+        "phone": "0621-2345678"
+      }
+    ]
+  },
+  {
+    "state": "Assam",
+    "organizations": [
+      {
+        "name": "North East Network",
+        "focus_area": "Women's Rights",
+        "address": "Bhangagarh, Guwahati",
+        "phone": "0361-2345678"
+      },
+      {
+        "name": "Krishak Mukti Sangram Samiti",
+        "focus_area": "Farmer Rights",
+        "address": "Gar Ali, Jorhat",
+        "phone": "0376-2345678"
+      }
+    ]
+  }
+]
