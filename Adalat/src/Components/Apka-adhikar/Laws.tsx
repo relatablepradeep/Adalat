@@ -1,61 +1,51 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import articlesJSON from './Rules/Articles/Articles.json';
+import surakshaJSON from './Rules/bhartiya-nagrink-suraksa-sanhita/BhartiyaNagrikSuraksaSanhita.json';
+import nyayJSON from './Rules/bhartiya-nayy-sanhita/BhartiyaNayySanhita.json';
+import ipcJSON from './Rules/IPC/ipc.json';
+import personalLawJSON from './Rules/personal-law/personalLaw.json';
+import specialActsJSON from './Rules/special-acts/SpecialActs.json';
+import taxLawJSON from './Rules/tax-laws/taxAndLaw.json';
 
-export default function Laws() {
-  const [visible, setVisible] = useState([]);
-  
-  const legalTopics = [
-    { id: 1, title: "Tax Laws", path: "/tax-laws" },
-    { id: 2, title: "Special Acts", path: "/special-acts" },
-    { id: 3, title: "Personal Law", path: "/personal-law" },
-    { id: 4, title: "IPC", path: "/ipc" },
-    { id: 5, title: "Bhartiya Nayy Sanhita", path: "/bhartiya-nayy-sanhita" },
-    { id: 6, title: "Bhartiya Nagrink Suraksa Sanhita", path: "/bhartiya-nagrink-suraksa-sanhita" },
-    { id: 7, title: "Bhartiya Nagrink Adhiniyam", path: "/bhartiya-nagrink-adhiniyam" },
-    { id: 8, title: "Articles", path: "/articles" }
+const Laws = () => {
+  const [selectedData, setSelectedData] = useState(null);
+
+  const lawFiles = [
+    { name: 'Articles from Constitution of India', data: articlesJSON.constitution_of_india || [] },
+    { name: 'Bharatiya Nagarik Suraksha Sanhita (Chapters)', data: surakshaJSON.chapters || [] },
+    { name: 'Bhartiya Nyay Sanhita (Chapters)', data: nyayJSON.chapters || [] },
+    { name: 'IPC Data', data: ipcJSON || [] },
+    { name: 'Personal Laws', data: personalLawJSON.personal_laws || [] },
+    { name: 'Special Acts', data: specialActsJSON.acts || [] },
+    { name: 'Tax Laws', data: taxLawJSON.tax_laws || [] }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const cards = document.querySelectorAll('.card-container');
-      
-      cards.forEach((card, index) => {
-        const cardPosition = card.offsetTop;
-        
-        if (scrollPosition > cardPosition + 100 && !visible.includes(index)) {
-          setVisible(prev => [...prev, index]);
-        }
-      });
-    };
-
-    // Set initial cards that are in view
-    handleScroll();
-    
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    
-    // Clean up
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [visible]);
+  const handleClick = (data) => {
+    setSelectedData(data);
+  };
 
   return (
-    <div className="flex flex-col items-center p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8 text-center">Legal Topics</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
-        {legalTopics.map((topic, index) => (
-          <div 
-            key={topic.id} 
-            className="card-container transition-opacity duration-1000" 
-            style={{ opacity: visible.includes(index) ? 1 : 0 }}
-          >
-            <a href={topic.path} className="block">
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transform hover:scale-105 transition-all duration-300 h-48 flex items-center justify-center">
-                <h2 className="text-xl font-semibold text-center text-gray-800">{topic.title}</h2>
-              </div>
-            </a>
-          </div>
-        ))}
+    <div style={{ display: 'flex' }}>
+      {/* Sidebar with clickable list */}
+      <div style={{ width: '30%', borderRight: '1px solid #ccc', padding: '1rem' }}>
+        <h3>Choose a JSON file:</h3>
+        <ul>
+          {lawFiles.map((file, index) => (
+            <li key={index} style={{ cursor: 'pointer' }} onClick={() => handleClick(file)}>
+              {file.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* Display area for selected JSON data */}
+      <div style={{ flex: 1, padding: '1rem' }}>
+        <h2>{selectedData ? selectedData.name : 'Select a JSON file to view data'}</h2>
+        {selectedData && (
+          <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(selectedData.data, null, 2)}</pre>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default Laws;

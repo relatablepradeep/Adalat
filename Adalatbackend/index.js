@@ -1,18 +1,20 @@
 const express = require('express');
 const app = express();
-const port = 4000;
 const path = require("path");
+const port = 4000;
 
+// Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html from public folder
+// Routes
+app.use('/scaler/translate', require('./routes/route'));
+
+// Serve frontend
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: path.join(__dirname, "public") });
 });
 
-app.use('/scaler/translate', require("./routes/route.js"));
-
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });

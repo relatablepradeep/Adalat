@@ -106,7 +106,7 @@ export default function Navbar() {
             }>
               <span className="mr-1">⚖️</span> Aapke Adhikar
             </NavLink>
-            <NavLink to="/nyay-bot" className={({ isActive }) =>
+            <NavLink to="/Translate" className={({ isActive }) =>
               `flex items-center text-lg font-medium transition-all duration-300 px-3 py-2 mx-1 rounded-lg ${isActive ? "bg-pink-600 text-white shadow-lg shadow-pink-500/50" : "text-gray-200 hover:bg-purple-600 hover:text-white hover:shadow-md hover:shadow-purple-500/50 hover:-translate-y-1"}`
             }>
               <span className="mr-1">🤖</span> Nyay Bot

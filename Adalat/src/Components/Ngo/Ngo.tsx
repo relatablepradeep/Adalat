@@ -1,4 +1,4 @@
-// NGo.jsx
+
 import React, { useState } from 'react';
 import ngoData from './Ngo.json';
 

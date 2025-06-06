@@ -8,5 +8,11 @@ export default defineConfig({
     proxy: {
       '/scaler/translate': 'http://localhost:4000',
     },
+    hmr: {
+      overlay: false
+    }
   },
+  json: {
+    stringify: true
+  }
 })

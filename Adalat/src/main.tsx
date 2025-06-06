@@ -9,6 +9,7 @@ import Ques from './Components/Sawal-Jawab/Ques';
 import Story from './Components/Haq-ki-khaniay/Story';
 import Ngo from './Components/Ngo/Ngo'
 import News from './Components/Laws/News';
+import Translate from './Components/Translator/TranslateText';
 
 
 
@@ -21,9 +22,11 @@ const router = createBrowserRouter(
       <Route path='/Laws' element={<Laws />} />
       <Route path='/kanooni-madad/courts' element={<Courts/>}/>
       <Route path='/kanun-seekho/sawal-jawab' element={<Ques/>}/>
+      {/* <Route path="/tax-laws" element={} */}
       <Route path='kanun-seekho/scenarios' element={<Story/>}/>
       <Route path="/kanooni-madad/aid" element={<Ngo/>}/>
       <Route path="/kanooni-khabrein/laws" element={<News/>}/>
+      <Route path='/Translate' element={<Translate/>}/>
 
       
   
