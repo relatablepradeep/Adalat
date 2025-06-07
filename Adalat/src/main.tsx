@@ -10,6 +10,10 @@ import Story from './Components/Haq-ki-khaniay/Story';
 import Ngo from './Components/Ngo/Ngo'
 import News from './Components/Laws/News';
 import Translate from './Components/Translator/TranslateText';
+import Blog from './Components/naya-samuday/Blog';
+import Lawyer from './Components/Lawyer/Lawyer';
+import Ruling from './Components/Courts/Ruling';
+import Schemes from './Components/Schemes/Schemes';
 
 
 
@@ -27,6 +31,11 @@ const router = createBrowserRouter(
       <Route path="/kanooni-madad/aid" element={<Ngo/>}/>
       <Route path="/kanooni-khabrein/laws" element={<News/>}/>
       <Route path='/Translate' element={<Translate/>}/>
+      <Route path='community' element={<Blog/>}/>
+      <Route path="kanooni-madad/lawyers" element={<Lawyer/>}/>
+      <Route path="kanooni-khabrein/rulings" element={<Ruling/>}/>
+      <Route path="kanooni-khabrein/Schemes" element={<Schemes/>}/>
+
 
       
   
