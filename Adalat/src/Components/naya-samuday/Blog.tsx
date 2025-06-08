@@ -1,308 +1,530 @@
 import React, { useState, useEffect } from "react";
-import { Edit3, Globe, Send, BookOpen, Sparkles, Languages } from "lucide-react";
 
-// Language mapping (unchanged logic)
 const keyValues = {
   en: "English",
-  hi: "Hindi",
+  as: "Assamese",
   bn: "Bengali",
+  brx: "Bodo",
+  doi: "Dogri",
+  gom: "Goan Konkani",
+  gu: "Gujarati",
+  hi: "Hindi",
+  kn: "Kannada",
+  ks: "Kashmiri",
+  mai: "Maithili",
+  ml: "Malayalam",
+  mni: "Manipuri",
+  mr: "Marathi",
+  ne: "Nepali",
+  or: "Oriya",
+  pa: "Punjabi",
+  sa: "Sanskrit",
+  sat: "Santali",
+  sd: "Sindhi",
   ta: "Tamil",
   te: "Telugu",
-  gu: "Gujarati",
-  kn: "Kannada",
-  ml: "Malayalam",
-  mr: "Marathi",
-  pa: "Punjabi",
   ur: "Urdu",
-  as: "Assamese",
-  or: "Oriya",
-  sa: "Sanskrit",
 };
 
-export default function BlogWithTranslation() {
-  // All original state logic unchanged
-  const [languagesData, setLanguagesData] = useState([]);
-  const [sourceLang, setSourceLang] = useState("hi");
-  const [targetLang, setTargetLang] = useState("en");
-  const [blogInput, setBlogInput] = useState("");
-  const [postedBlog, setPostedBlog] = useState(null);
-  const [translatedText, setTranslatedText] = useState("");
-  const [showTargetModal, setShowTargetModal] = useState(false);
+export default function LegalBlog() {
+  const [languages, setLanguages] = useState([]);
+  const [sourceLang, setSourceLang] = useState("en");
+  const [posts, setPosts] = useState([]);
+  const [postText, setPostText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Original fetch logic unchanged
   useEffect(() => {
-    async function fetchLanguages() {
-      const res = await fetch(
-        "https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/getModelsPipeline",
-        {
-          headers: {
-            userID: "9f55ae82e8204e4c86625573098e7707",
-            ulcaApiKey: "52d075f861-561b-42fe-8b00-8a034acb4deb",
-          },
-          method: "POST",
-          body: JSON.stringify({
-            pipelineTasks: [{ taskType: "translation" }],
-            pipelineRequestConfig: {
-              pipelineId: "64392f96daac500b55c543cd",
-            },
-          }),
-        }
-      );
-      const data = await res.json();
-      setLanguagesData(data.languages || []);
-    }
-
-    fetchLanguages();
+    // Fetch languages from ULCA API
+    fetch(
+      "https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/getModelsPipeline",
+      {
+        method: "POST",
+        headers: {
+          userID: "9f55ae82e8204e4c86625573098e7707",
+          ulcaApiKey: "52d075f861-561b-42fe-8b00-8a034acb4deb",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pipelineTasks: [{ taskType: "translation" }],
+          pipelineRequestConfig: { pipelineId: "64392f96daac500b55c543cd" },
+        }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLanguages(data.languages);
+      });
   }, []);
 
-  // Original auto-set logic unchanged
-  useEffect(() => {
-    const match = languagesData.find((l) => l.sourceLanguage === sourceLang);
-    if (match?.targetLanguageList.length) {
-      setTargetLang(match.targetLanguageList[0]);
-    }
-  }, [languagesData, sourceLang]);
-
-  // Original functions unchanged
-  const handlePost = () => {
-    if (!blogInput.trim()) {
-      alert("Please write a blog post!");
-      return;
-    }
-    setPostedBlog(blogInput);
-    setTranslatedText("");
-    setBlogInput("");
+  // Helper: get target languages for a source language
+  const getTargetLanguages = (srcLang) => {
+    const found = languages.find((l) => l.sourceLanguage === srcLang);
+    return found ? found.targetLanguageList : [];
   };
 
-  const handleTranslate = async () => {
-    if (!postedBlog) return;
-    setLoading(true);
-    setTranslatedText("");
-    setShowTargetModal(false);
+  // Add new post
+  const addPost = () => {
+    if (!postText.trim()) return;
+    const newPost = {
+      id: Date.now().toString(),
+      text: postText.trim(),
+      lang: sourceLang,
+      comments: [],
+      likes: 0,
+      timestamp: new Date().toISOString(),
+    };
+    setPosts([newPost, ...posts]);
+    setPostText("");
+  };
 
+  // Add comment to post
+  const addComment = (postId, commentText) => {
+    if (!commentText.trim()) return;
+
+    setPosts((prevPosts) =>
+      prevPosts.map((post) => {
+        if (post.id === postId) {
+          const newComments = [
+            ...post.comments,
+            {
+              id: Date.now().toString(),
+              text: commentText.trim(),
+              timestamp: new Date().toISOString(),
+            },
+          ];
+
+          // Check for @adalat bot trigger
+          if (commentText.includes("@adalat")) {
+            newComments.push({
+              id: (Date.now() + 1).toString(),
+              text: "I'm here to help you with your legal query! 🏛️ Feel free to ask me anything about law.",
+              botReply: true,
+              timestamp: new Date().toISOString(),
+            });
+          }
+
+          return { ...post, comments: newComments };
+        }
+        return post;
+      })
+    );
+  };
+
+  // Translate text using API
+  const translate = async (text, source_language, target_language) => {
+    setLoading(true);
     try {
       const res = await fetch("scaler/translate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
-          source_language: sourceLang,
-          content: postedBlog,
-          target_language: targetLang,
+          source_language,
+          content: text,
+          target_language,
         }),
       });
-
       const data = await res.json();
-      setTranslatedText(data.translated_content || "Translation failed.");
-    } catch (err) {
-      console.error(err);
-      alert("Translation error.");
-    } finally {
       setLoading(false);
+      return data.translated_content;
+    } catch (err) {
+      setLoading(false);
+      return "Translation error";
     }
   };
 
+  const getTimeAgo = (timestamp) => {
+    const now = new Date();
+    const posted = new Date(timestamp);
+    const diffInMinutes = Math.floor((now - posted) / (1000 * 60));
+    
+    if (diffInMinutes < 1) return 'Just now';
+    if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+    if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h ago`;
+    return `${Math.floor(diffInMinutes / 1440)}d ago`;
+  };
+
   return (
-    <>
-      {/* Animated Background with Floating Orbs */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),transparent_50%)]"></div>
-        
-        {/* Floating Orbs */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute top-1/4 right-20 w-24 h-24 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-lg opacity-60 animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full blur-lg opacity-50 animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-gradient-to-r from-orange-400 to-red-500 rounded-full blur-xl opacity-40 animate-bounce"></div>
-        <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-md opacity-60 animate-pulse"></div>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      {/* Header */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 animate-pulse"></div>
+        <div className="relative px-6 py-12 text-center">
+          <h1 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-4 animate-fade-in">
+            LegalVibes
+          </h1>
+          <p className="text-xl text-purple-200 font-medium mb-2">Your space for legal discussions ⚖️</p>
+          <p className="text-sm text-purple-300">Share thoughts, get insights, stay informed ✨</p>
+        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen p-6 pb-32">
-        <div className="max-w-4xl mx-auto space-y-12">
-          {/* Header with Gradient Text */}
-          <div className="text-center mb-16">
-            <div className="relative">
-              <h1 className="text-7xl font-extrabold bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent mb-8 animate-pulse tracking-tight">
-                <Edit3 className="inline-block mr-4 text-amber-400 drop-shadow-2xl" size={60} />
-                Nyay Samuday
-              </h1>
-              <div className="absolute -top-2 -left-2 w-full h-full bg-gradient-to-r from-amber-500/20 to-red-500/20 blur-3xl -z-10 animate-pulse"></div>
+      <div className="max-w-4xl mx-auto px-6 pb-12">
+        {/* Create Post Section */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 mb-8 animate-fade-in-up">
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <span className="mr-3">✍️</span>
+            What's on your legal mind?
+          </h2>
+          
+          <div className="space-y-6">
+            <div>
+              <label className="block text-purple-200 font-semibold mb-3 flex items-center">
+                <span className="mr-2">🌐</span>
+                Choose Your Language:
+              </label>
+              <select
+                value={sourceLang}
+                onChange={(e) => setSourceLang(e.target.value)}
+                className="w-full p-4 rounded-2xl bg-white/10 border border-white/20 text-white backdrop-blur-sm focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all"
+              >
+                {languages.map((lang) => (
+                  <option key={lang.sourceLanguage} value={lang.sourceLanguage} className="bg-gray-800">
+                    {keyValues[lang.sourceLanguage] || lang.sourceLanguage}
+                  </option>
+                ))}
+              </select>
             </div>
-            
-            <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-800/50 via-gray-800/40 to-slate-900/60 backdrop-blur-xl rounded-3xl p-8 border border-amber-500/20 shadow-2xl shadow-amber-500/10">
-              <p className="text-gray-100 text-2xl leading-relaxed font-medium">
-                Introducing{' '}
-                <span className="font-black text-3xl bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 bg-clip-text text-transparent animate-pulse">
-                  Nyay Samuday
-                </span>
-                {' '}— a dedicated space where you can ask questions, share concerns, and find solutions related to your{' '}
-                <span className="font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">
-                  legal rights and justice
-                </span>
-                . Powered by{' '}
-                <span className="font-bold text-2xl bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 bg-clip-text text-transparent">
-                  Bhasni
-                </span>
-                , it supports India's diverse native languages — so no matter which language you speak,{' '}
-                <span className="font-semibold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  we're here to understand and help you
-                </span>
-                .
-              </p>
-              
-              <div className="flex justify-center mt-6">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-bounce"></div>
-                  <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                  <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Blog Input Card */}
-          <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30 shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300">
-            <div className="relative">
+            <div>
+              <label className="block text-purple-200 font-semibold mb-3 flex items-center">
+                <span className="mr-2">📝</span>
+                Share your thoughts:
+              </label>
               <textarea
-                rows={8}
-                value={blogInput}
-                onChange={(e) => setBlogInput(e.target.value)}
-                placeholder="Write your amazing blog post here... ✨"
-                className="w-full bg-black/20 backdrop-blur-sm text-white placeholder-gray-400 p-6 text-lg rounded-xl border border-purple-500/30 focus:border-pink-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/30 resize-none transition-all duration-300"
+                value={postText}
+                onChange={(e) => setPostText(e.target.value)}
+                placeholder="Share a legal insight, ask a question, or start a discussion..."
+                className="w-full h-32 p-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-purple-300 backdrop-blur-sm focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all resize-none"
               />
-              <div className="absolute bottom-4 right-4">
-                <Sparkles className="text-purple-400 opacity-50" size={24} />
-              </div>
             </div>
 
-            {/* Language Selection */}
-            <div className="flex items-center justify-between mt-6">
-              <div className="flex items-center space-x-4">
-                <Languages className="text-cyan-400" size={24} />
-                <label className="text-white font-semibold text-lg">Your Language:</label>
-                <select
-                  value={sourceLang}
-                  onChange={(e) => setSourceLang(e.target.value)}
-                  className="bg-gradient-to-r from-blue-600/50 to-purple-600/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-blue-500/30 focus:border-cyan-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-300"
-                >
-                  {Object.keys(keyValues).map((lang) => (
-                    <option key={lang} value={lang} className="bg-gray-800 text-white">
-                      {keyValues[lang]}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <button
+              onClick={addPost}
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-2xl hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 flex items-center"
+            >
+              <span className="mr-2">🚀</span>
+              Post It
+            </button>
+          </div>
+        </div>
 
-              {/* Post Button */}
-              <button
-                onClick={handlePost}
-                className="group relative bg-gradient-to-r from-pink-500 to-violet-600 hover:from-pink-600 hover:to-violet-700 text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-lg hover:shadow-pink-500/25 transform hover:scale-105 transition-all duration-300 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <Send className="inline-block mr-2" size={20} />
-                Post Blog
-              </button>
+        {/* Loading Spinner */}
+        {loading && (
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin"></div>
+              <div className="absolute inset-0 w-12 h-12 border-4 border-pink-200 border-t-pink-500 rounded-full animate-spin animate-reverse mt-2 ml-2"></div>
             </div>
           </div>
+        )}
 
-          {/* Posted Blog Display */}
-          {postedBlog && (
-            <div className="bg-gradient-to-br from-teal-900/40 to-emerald-900/40 backdrop-blur-lg rounded-2xl p-8 border border-teal-500/30 shadow-2xl">
-              <div className="flex items-center mb-6">
-                <BookOpen className="text-teal-400 mr-3" size={28} />
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-300 bg-clip-text text-transparent">
-                  Blog in {keyValues[sourceLang]}
-                </h2>
-              </div>
-              
-              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-teal-500/20 mb-6">
-                <p className="text-gray-200 text-lg leading-relaxed whitespace-pre-wrap">
-                  {postedBlog}
-                </p>
-              </div>
-
-              <button
-                onClick={() => setShowTargetModal(true)}
-                className="group relative bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <Globe className="inline-block mr-2" size={20} />
-                Translate this post
-              </button>
-            </div>
-          )}
-
-          {/* Loading State */}
-          {loading && (
-            <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 backdrop-blur-lg rounded-2xl p-8 border border-amber-500/30 shadow-2xl">
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-8 h-8 border-4 border-amber-400/30 border-t-amber-400 rounded-full animate-spin"></div>
-                <span className="text-amber-300 text-xl font-semibold">Translating your masterpiece...</span>
-              </div>
-            </div>
-          )}
-
-          {/* Translated Text Display */}
-          {translatedText && (
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-lg rounded-2xl p-8 border border-violet-500/30 shadow-2xl">
-              <div className="flex items-center mb-6">
-                <Globe className="text-violet-400 mr-3" size={28} />
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-purple-300 bg-clip-text text-transparent">
-                  Translation in {keyValues[targetLang]}
-                </h3>
-              </div>
-              
-              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-violet-500/20">
-                <p className="text-gray-200 text-lg leading-relaxed">
-                  {translatedText}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Translation Modal */}
-          {showTargetModal && (
-            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-              <div className="bg-gradient-to-br from-purple-900/90 to-pink-900/90 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30 shadow-2xl max-w-md w-full transform animate-pulse">
-                <h3 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Select Translation Language
-                </h3>
-                
-                <select
-                  value={targetLang}
-                  onChange={(e) => setTargetLang(e.target.value)}
-                  className="w-full bg-black/30 backdrop-blur-sm text-white px-4 py-3 rounded-lg border border-purple-500/30 focus:border-pink-500/50 focus:outline-none focus:ring-2 focus:ring-purple-500/30 transition-all duration-300 mb-6"
-                >
-                  {languagesData
-                    .find((l) => l.sourceLanguage === sourceLang)
-                    ?.targetLanguageList.map((lang) => (
-                      <option key={lang} value={lang} className="bg-gray-800 text-white">
-                        {keyValues[lang] || lang}
-                      </option>
-                    ))}
-                </select>
-
-                <div className="flex space-x-4">
-                  <button
-                    onClick={handleTranslate}
-                    className="flex-1 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white py-3 rounded-lg font-semibold transform hover:scale-105 transition-all duration-300"
-                  >
-                    Translate
-                  </button>
-                  <button
-                    onClick={() => setShowTargetModal(false)}
-                    className="flex-1 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white py-3 rounded-lg font-semibold transform hover:scale-105 transition-all duration-300"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
+        {/* Posts */}
+        <div className="space-y-6">
+          {posts.map((post, index) => (
+            <Post
+              key={post.id}
+              post={post}
+              sourceLang={sourceLang}
+              targetLanguages={getTargetLanguages(post.lang)}
+              onAddComment={addComment}
+              translate={translate}
+              getTimeAgo={getTimeAgo}
+              index={index}
+            />
+          ))}
+          
+          {posts.length === 0 && (
+            <div className="text-center py-20">
+              <div className="text-6xl mb-4">📚</div>
+              <p className="text-purple-200 text-xl">No posts yet! Be the first to share something legal</p>
             </div>
           )}
         </div>
       </div>
-    </>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-out;
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.6s ease-out forwards;
+          opacity: 0;
+        }
+        
+        .animate-reverse {
+          animation-direction: reverse;
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function Post({ post, sourceLang, targetLanguages, onAddComment, translate, getTimeAgo, index }) {
+  const [showReply, setShowReply] = useState(false);
+  const [replyText, setReplyText] = useState("");
+  const [showTranslate, setShowTranslate] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(targetLanguages[0] || "");
+  const [translatedText, setTranslatedText] = useState(null);
+  const [loadingTranslate, setLoadingTranslate] = useState(false);
+  const [likes, setLikes] = useState(post.likes || 0);
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    if (targetLanguages.length > 0) {
+      setSelectedLang(targetLanguages[0]);
+    }
+  }, [targetLanguages]);
+
+  const handleTranslate = async () => {
+    if (!selectedLang) return;
+    setLoadingTranslate(true);
+    const translated = await translate(post.text, post.lang, selectedLang);
+    setTranslatedText(translated);
+    setLoadingTranslate(false);
+  };
+
+  const handleReply = () => {
+    onAddComment(post.id, replyText);
+    setReplyText("");
+    setShowReply(false);
+  };
+
+  const handleLike = () => {
+    if (!liked) {
+      setLikes(likes + 1);
+      setLiked(true);
+    }
+  };
+
+  return (
+    <div
+      className="group bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 hover:border-purple-400/50 transition-all duration-500 transform hover:scale-102 animate-fade-in-up"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      {/* Post Header */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold">👤</span>
+          </div>
+          <div>
+            <p className="text-white font-semibold">Legal Explorer</p>
+            <p className="text-purple-300 text-sm flex items-center">
+              <span className="mr-1">🌐</span>
+              {keyValues[post.lang] || post.lang} • {getTimeAgo(post.timestamp)}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Post Content */}
+      <div className="mb-6">
+        <p className="text-white text-lg leading-relaxed">{post.text}</p>
+      </div>
+
+      {/* Translation Section */}
+      {translatedText && (
+        <div className="mb-6 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-blue-400/30">
+          <p className="text-blue-200 font-semibold mb-2 flex items-center">
+            <span className="mr-2">🔄</span>
+            Translated to {keyValues[selectedLang] || selectedLang}:
+          </p>
+          <p className="text-white">{translatedText}</p>
+        </div>
+      )}
+
+      {/* Action Buttons */}
+      <div className="flex items-center space-x-4 mb-4">
+        <button
+          onClick={handleLike}
+          className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
+            liked 
+              ? 'bg-gradient-to-r from-pink-500 to-red-500 text-white' 
+              : 'bg-white/10 text-purple-200 hover:bg-white/20'
+          }`}
+        >
+          <span>{liked ? '❤️' : '🤍'}</span>
+          <span className="font-semibold">{likes}</span>
+        </button>
+
+        <button
+          onClick={() => setShowReply(!showReply)}
+          className="flex items-center space-x-2 px-4 py-2 bg-white/10 text-purple-200 rounded-full hover:bg-white/20 transition-all duration-300"
+        >
+          <span>💬</span>
+          <span className="font-semibold">Comment</span>
+        </button>
+
+        <button
+          onClick={() => setShowTranslate(!showTranslate)}
+          className="flex items-center space-x-2 px-4 py-2 bg-white/10 text-purple-200 rounded-full hover:bg-white/20 transition-all duration-300"
+        >
+          <span>🔄</span>
+          <span className="font-semibold">Translate</span>
+        </button>
+      </div>
+
+      {/* Reply Section */}
+      {showReply && (
+        <div className="mb-6 p-4 bg-white/5 rounded-2xl border border-white/10">
+          <div className="flex space-x-3">
+            <input
+              type="text"
+              placeholder="Type your comment or '@adalat' for legal help..."
+              value={replyText}
+              onChange={(e) => setReplyText(e.target.value)}
+              className="flex-1 p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:border-purple-400 focus:outline-none"
+            />
+            <button
+              onClick={handleReply}
+              className="px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300"
+            >
+              Post
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Translate Section */}
+      {showTranslate && (
+        <div className="mb-6 p-4 bg-white/5 rounded-2xl border border-white/10">
+          <div className="flex items-center space-x-3">
+            <select
+              value={selectedLang}
+              onChange={(e) => setSelectedLang(e.target.value)}
+              className="p-3 rounded-xl bg-white/10 border border-white/20 text-white focus:border-purple-400 focus:outline-none"
+            >
+              {targetLanguages.map((lang) => (
+                <option key={lang} value={lang} className="bg-gray-800">
+                  {keyValues[lang] || lang}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={handleTranslate}
+              disabled={loadingTranslate}
+              className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+            >
+              {loadingTranslate ? 'Translating...' : 'Translate'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Comments */}
+      {post.comments.length > 0 && (
+        <div className="space-y-3">
+          {post.comments.map((comment) => (
+            <Comment
+              key={comment.id}
+              comment={comment}
+              sourceLang={post.lang}
+              targetLanguages={targetLanguages}
+              translate={translate}
+              getTimeAgo={getTimeAgo}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Comment({ comment, sourceLang, targetLanguages, translate, getTimeAgo }) {
+  const [showTranslate, setShowTranslate] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(targetLanguages[0] || "");
+  const [translatedText, setTranslatedText] = useState(null);
+  const [loadingTranslate, setLoadingTranslate] = useState(false);
+
+  useEffect(() => {
+    if (targetLanguages.length > 0) {
+      setSelectedLang(targetLanguages[0]);
+    }
+  }, [targetLanguages]);
+
+  const handleTranslate = async () => {
+    if (!selectedLang) return;
+    setLoadingTranslate(true);
+    const translated = await translate(comment.text, sourceLang, selectedLang);
+    setTranslatedText(translated);
+    setLoadingTranslate(false);
+  };
+
+  return (
+    <div className={`p-4 rounded-2xl ml-6 ${
+      comment.botReply 
+        ? 'bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-400/30' 
+        : 'bg-white/5 border border-white/10'
+    }`}>
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center space-x-2">
+          <span className="text-lg">
+            {comment.botReply ? '🤖' : '👤'}
+          </span>
+          <span className="text-white font-semibold">
+            {comment.botReply ? 'Adalat Bot' : 'User'}
+          </span>
+          {comment.timestamp && (
+            <span className="text-purple-300 text-sm">
+              • {getTimeAgo(comment.timestamp)}
+            </span>
+          )}
+        </div>
+      </div>
+      
+      <p className="text-white mb-3">{comment.text}</p>
+
+      {translatedText && (
+        <div className="mb-3 p-3 bg-blue-500/10 rounded-xl border border-blue-400/30">
+          <p className="text-blue-200 text-sm font-semibold mb-1">
+            Translated to {keyValues[selectedLang] || selectedLang}:
+          </p>
+          <p className="text-white">{translatedText}</p>
+        </div>
+      )}
+
+      <button
+        onClick={() => setShowTranslate(!showTranslate)}
+        className="text-purple-300 hover:text-white text-sm font-semibold transition-colors"
+      >
+        🔄 Translate
+      </button>
+
+      {showTranslate && (
+        <div className="mt-3 flex items-center space-x-2">
+          <select
+            value={selectedLang}
+            onChange={(e) => setSelectedLang(e.target.value)}
+            className="p-2 rounded-lg bg-white/10 border border-white/20 text-white text-sm focus:border-purple-400 focus:outline-none"
+          >
+            {targetLanguages.map((lang) => (
+              <option key={lang} value={lang} className="bg-gray-800">
+                {keyValues[lang] || lang}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={handleTranslate}
+            disabled={loadingTranslate}
+            className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+          >
+            {loadingTranslate ? 'Translating...' : 'Translate'}
+          </button>
+        </div>
+      )}
+    </div>
   );
 }

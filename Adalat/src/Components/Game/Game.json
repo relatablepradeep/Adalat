@@ -1,0 +1,1127 @@
+[
+  {
+    "id": 1,
+    "title": "Land Stolen by Builder",
+    "description": "Your ancestral land has been illegally occupied by a builder who started construction without your consent. The local police refuse to register your complaint, citing insufficient evidence.",
+    "icon": "Building",
+    "gradient": "from-orange-400 via-red-500 to-pink-600",
+    "options": [
+      {
+        "text": "File a complaint with the Superintendent of Police (SP) or District Magistrate (DM)",
+        "result": "✅ SP or DM orders an investigation. Progress made toward reclaiming your land.",
+        "correct": true,
+        "explanation": "When local police refuse to act, escalating to the SP or DM is effective. The SP can mandate an FIR under Section 154 of the CrPC, while the DM, as a revenue authority, can address land disputes. This ensures legal action without delays or corruption."
+      },
+      {
+        "text": "Pay a bribe to the local police",
+        "result": "❌ Illegal and risky. May lead to legal consequences.",
+        "correct": false
+      },
+      {
+        "text": "Do nothing and wait for the builder to vacate",
+        "result": "❌ No progress. You may lose your property permanently.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Police Refuse to File FIR",
+    "description": "Your mobile phone was stolen in a crowded market. The local police dismiss your complaint as minor and refuse to file an FIR.",
+    "icon": "Shield",
+    "gradient": "from-blue-400 via-purple-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a complaint with the SP or use the state police’s online grievance portal",
+        "result": "✅ Complaint escalated, and FIR is filed, initiating an investigation.",
+        "correct": true,
+        "explanation": "Section 154 of the CrPC mandates police to register FIRs for cognizable offenses like theft. If refused, escalating to the SP or using online grievance portals (available in most states) ensures accountability and formal registration of your complaint."
+      },
+      {
+        "text": "Threaten the police with violence",
+        "result": "❌ Illegal and will lead to your arrest.",
+        "correct": false
+      },
+      {
+        "text": "Post the issue on social media",
+        "result": "❌ Raises awareness but doesn’t lead to legal action.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Builder Delays Possession of Flat",
+    "description": "You booked a flat five years ago with a promised delivery two years ago. The builder delays possession and demands additional payments.",
+    "icon": "Home",
+    "gradient": "from-green-400 via-teal-500 to-cyan-600",
+    "options": [
+      {
+        "text": "File a complaint with the Real Estate Regulatory Authority (RERA)",
+        "result": "✅ Builder summoned, may face fines, and possession expedited.",
+        "correct": true,
+        "explanation": "RERA, under the Real Estate Act, 2016, protects homebuyers. Filing a complaint compels builders to deliver possession, refund payments, or pay compensation for delays. RERA’s authority ensures accountability and legal recourse for homebuyers."
+      },
+      {
+        "text": "Pay the extra money demanded",
+        "result": "❌ Encourages unethical practices and may not guarantee possession.",
+        "correct": false
+      },
+      {
+        "text": "Keep calling the builder daily",
+        "result": "❌ Ineffective. No legal pressure applied.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Online Product Is Fake",
+    "description": "You purchased an expensive gadget online, but it’s counterfeit. The seller refuses to refund and stops responding.",
+    "icon": "ShoppingCart",
+    "gradient": "from-yellow-400 via-orange-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the Consumer Disputes Redressal Commission",
+        "result": "✅ Seller is legally bound to respond, and you may get a refund.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, allows consumers to file complaints with the Consumer Commission for defective or fake products. The commission can order refunds or compensation, ensuring your rights as a consumer are protected."
+      },
+      {
+        "text": "Threaten the seller over phone",
+        "result": "❌ Illegal and could lead to legal action against you.",
+        "correct": false
+      },
+      {
+        "text": "Accept the loss quietly",
+        "result": "❌ You lose your money with no justice.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Police Harassment During Complaint",
+    "description": "You report a domestic issue, but the police mock you and threaten detention if you persist.",
+    "icon": "FileText",
+    "gradient": "from-purple-400 via-pink-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the State or National Human Rights Commission (NHRC)",
+        "result": "✅ Investigation into the officer’s conduct begins.",
+        "correct": true,
+        "explanation": "The NHRC or SHRC investigates human rights violations, including police harassment. Filing a complaint triggers an inquiry, potentially leading to disciplinary action against the officer, ensuring your right to file a complaint is protected."
+      },
+      {
+        "text": "Abandon the complaint and leave",
+        "result": "❌ Injustice continues, and your issue remains unresolved.",
+        "correct": false
+      },
+      {
+        "text": "Offer money to avoid harassment",
+        "result": "❌ Encourages corruption and sets a bad precedent.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Unfair Termination from Job",
+    "description": "You were fired from your private sector job without notice or valid reason, despite a contract specifying a notice period.",
+    "icon": "Briefcase",
+    "gradient": "from-indigo-400 via-blue-500 to-purple-600",
+    "options": [
+      {
+        "text": "File a case in the Labour Court or approach the Labour Commissioner",
+        "result": "✅ Court or commissioner investigates, and you may get reinstatement or compensation.",
+        "correct": true,
+        "explanation": "The Industrial Disputes Act, 1947, allows employees to challenge unfair termination in the Labour Court or with the Labour Commissioner. The court can order reinstatement or compensation if the termination violates contract terms."
+      },
+      {
+        "text": "Publicly shame the employer on social media",
+        "result": "❌ May harm your reputation and has no legal weight.",
+        "correct": false
+      },
+      {
+        "text": "Accept the termination and move on",
+        "result": "❌ You lose your rights to severance or reinstatement.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Domestic Violence Complaint Ignored",
+    "description": "You face domestic violence, but the police dismiss it as a “family matter” and refuse to act.",
+    "icon": "User",
+    "gradient": "from-pink-400 via-red-500 to-orange-600",
+    "options": [
+      {
+        "text": "File a complaint under the Protection of Women from Domestic Violence Act, 2005, with a Protection Officer or Magistrate",
+        "result": "✅ Court issues a protection order, and support is provided.",
+        "correct": true,
+        "explanation": "The Domestic Violence Act, 2005, allows victims to seek protection orders, residence orders, or monetary relief through a Protection Officer or Magistrate. This legal route ensures safety and accountability, bypassing uncooperative police."
+      },
+      {
+        "text": "Confront the abuser directly",
+        "result": "❌ Dangerous and may escalate violence.",
+        "correct": false
+      },
+      {
+        "text": "Do nothing and hope it improves",
+        "result": "❌ Puts your safety at risk with no resolution.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Hit-and-Run Accident",
+    "description": "You were injured in a hit-and-run accident. The police can’t trace the vehicle, and you have medical expenses without insurance.",
+    "icon": "Car",
+    "gradient": "from-teal-400 via-green-500 to-blue-600",
+    "options": [
+      {
+        "text": "Apply for compensation through the Motor Accident Claims Tribunal (MACT)",
+        "result": "✅ Tribunal may award compensation for your injuries.",
+        "correct": true,
+        "explanation": "The Motor Vehicles Act, 1988, provides a hit-and-run compensation fund through the MACT. Filing a claim ensures financial relief for medical expenses and losses, even if the perpetrator is untraceable."
+      },
+      {
+        "text": "Protest at the police station",
+        "result": "❌ Disruptive and unlikely to yield results.",
+        "correct": false
+      },
+      {
+        "text": "Pay medical expenses yourself",
+        "result": "❌ You bear the financial burden without compensation.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Credit Card Fraud",
+    "description": "Your credit card was used for unauthorized transactions, and the bank refuses to refund the amount, claiming you were negligent.",
+    "icon": "CreditCard",
+    "gradient": "from-red-400 via-orange-500 to-yellow-600",
+    "options": [
+      {
+        "text": "File a complaint with the Banking Ombudsman",
+        "result": "✅ Ombudsman investigates, and you may get a refund.",
+        "correct": true,
+        "explanation": "The Banking Ombudsman, under RBI guidelines, resolves disputes between customers and banks. Filing a complaint ensures an investigation into the fraud, potentially leading to a refund if the bank’s negligence is proven."
+      },
+      {
+        "text": "Pay the disputed amount to avoid legal notice",
+        "result": "❌ You lose money unnecessarily.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the bank’s notices",
+        "result": "❌ May lead to legal action and credit score damage.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Delayed Insurance Claim",
+    "description": "Your health insurance claim for a major surgery is delayed by the insurer for over six months without justification.",
+    "icon": "File",
+    "gradient": "from-blue-400 via-teal-500 to-green-600",
+    "options": [
+      {
+        "text": "Approach the Insurance Ombudsman",
+        "result": "✅ Ombudsman ensures the claim is processed or compensated.",
+        "correct": true,
+        "explanation": "The Insurance Ombudsman, under IRDAI, resolves disputes with insurers. Filing a complaint compels the insurer to process your claim or provide compensation for delays, ensuring your rights under the insurance policy are upheld."
+      },
+      {
+        "text": "Keep calling the insurer daily",
+        "result": "❌ Ineffective and time-consuming.",
+        "correct": false
+      },
+      {
+        "text": "Abandon the claim",
+        "result": "❌ You lose entitled benefits.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Cyberbullying on Social Media",
+    "description": "You’re receiving abusive comments and threats on social media, impacting your mental health.",
+    "icon": "Smartphone",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a complaint with the Cyber Crime Cell",
+        "result": "✅ Investigation begins, and the perpetrator may be prosecuted.",
+        "correct": true,
+        "explanation": "The IT Act, 2000, criminalizes cyberbullying. Reporting to the Cyber Crime Cell or National Cyber Crime Reporting Portal initiates an investigation, potentially leading to prosecution and ensuring your safety."
+      },
+      {
+        "text": "Respond to the abuser online",
+        "result": "❌ May escalate the situation and weaken your legal case.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the harassment",
+        "result": "❌ Harms your mental health with no resolution.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Tenant Refuses to Vacate Property",
+    "description": "Your tenant refuses to vacate your property after the lease expires and stops paying rent.",
+    "icon": "Home",
+    "gradient": "from-green-400 via-cyan-500 to-blue-600",
+    "options": [
+      {
+        "text": "File an eviction suit in the Rent Control Court",
+        "result": "✅ Court orders eviction and may award pending rent.",
+        "correct": true,
+        "explanation": "Under state-specific Rent Control Acts, landlords can file eviction suits in the Rent Control Court for non-paying or overstaying tenants. The court ensures legal eviction and recovery of dues, protecting your property rights."
+      },
+      {
+        "text": "Forcibly remove the tenant",
+        "result": "❌ Illegal and may lead to criminal charges.",
+        "correct": false
+      },
+      {
+        "text": "Wait for the tenant to leave voluntarily",
+        "result": "❌ Delays resolution and financial loss.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Defective Car from Dealership",
+    "description": "You bought a new car, but it has recurring mechanical issues. The dealership refuses to repair or replace it.",
+    "icon": "Car",
+    "gradient": "from-red-400 via-yellow-500 to-orange-600",
+    "options": [
+      {
+        "text": "File a complaint with the Consumer Disputes Redressal Commission",
+        "result": "✅ Dealer is summoned, and you may get a replacement or refund.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, allows consumers to file complaints for defective products. The Consumer Commission can order repairs, replacements, or refunds, ensuring the dealership is held accountable for selling a faulty car."
+      },
+      {
+        "text": "Protest outside the dealership",
+        "result": "❌ May lead to legal issues and no resolution.",
+        "correct": false
+      },
+      {
+        "text": "Continue using the defective car",
+        "result": "❌ Risks safety and financial loss.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Workplace Sexual Harassment",
+    "description": "You face sexual harassment at your workplace, but the company’s internal committee ignores your complaint.",
+    "icon": "User",
+    "gradient": "from-pink-400 via-purple-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the Local Complaints Committee (LCC) under POSH Act",
+        "result": "✅ LCC investigates, and action is taken against the perpetrator.",
+        "correct": true,
+        "explanation": "The Sexual Harassment of Women at Workplace Act, 2013, mandates LCCs to handle complaints when internal committees fail. Filing with the LCC ensures an investigation and action, protecting your rights and workplace safety."
+      },
+      {
+        "text": "Confront the harasser directly",
+        "result": "❌ Risky and may escalate the situation.",
+        "correct": false
+      },
+      {
+        "text": "Quit your job to avoid harassment",
+        "result": "❌ Unfair to you and lets the perpetrator go unpunished.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Unpaid Salaries by Employer",
+    "description": "Your employer hasn’t paid your salary for three months, citing financial difficulties, but continues operations.",
+    "icon": "IndianRupee",
+    "gradient": "from-blue-400 via-green-500 to-teal-600",
+    "options": [
+      {
+        "text": "File a claim with the Labour Commissioner or Labour Court",
+        "result": "✅ Investigation begins, and you may recover unpaid salaries.",
+        "correct": true,
+        "explanation": "The Payment of Wages Act, 1936, allows employees to approach the Labour Commissioner or Labour Court for unpaid salaries. The authorities can order payment with interest, ensuring your financial rights are protected."
+      },
+      {
+        "text": "Strike outside the office",
+        "result": "❌ May harm your employment and has no legal weight.",
+        "correct": false
+      },
+      {
+        "text": "Accept the non-payment and continue working",
+        "result": "❌ You lose entitled wages.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Fraudulent Property Sale",
+    "description": "You bought a plot, but the seller forged documents, and the land belongs to someone else.",
+    "icon": "MapPin",
+    "gradient": "from-orange-400 via-red-500 to-purple-600",
+    "options": [
+      {
+        "text": "File a police complaint for cheating and forgery",
+        "result": "✅ FIR is filed, and an investigation begins.",
+        "correct": true,
+        "explanation": "Cheating (Section 420 IPC) and forgery (Section 468 IPC) are cognizable offenses. Filing a police complaint initiates an investigation, potentially leading to the seller’s prosecution and recovery of your money through legal proceedings."
+      },
+      {
+        "text": "Pay the seller to resolve the issue",
+        "result": "❌ Encourages fraud and leads to further loss.",
+        "correct": false
+      },
+      {
+        "text": "Do nothing and abandon the plot",
+        "result": "❌ You lose your investment with no justice.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Online Banking Scam",
+    "description": "You lost money to a phishing scam after clicking a fraudulent bank link. The bank refuses to help.",
+    "icon": "Monitor",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "Report to the Cyber Crime Cell and Banking Ombudsman",
+        "result": "✅ Investigation begins, and you may get a refund.",
+        "correct": true,
+        "explanation": "The IT Act, 2000, covers cyber fraud. Reporting to the Cyber Crime Cell initiates an investigation, while the Banking Ombudsman can compel the bank to refund losses if negligence is proven, protecting your financial rights."
+      },
+      {
+        "text": "Share the scam details on social media",
+        "result": "❌ Raises awareness but doesn’t recover your money.",
+        "correct": false
+      },
+      {
+        "text": "Accept the loss and move on",
+        "result": "❌ You lose your money with no recourse.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Defective Home Appliance",
+    "description": "You bought a refrigerator with a warranty, but it stopped working. The company refuses to repair it.",
+    "icon": "File",
+    "gradient": "from-yellow-400 via-orange-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the Consumer Disputes Redressal Commission",
+        "result": "✅ Company is summoned, and you may get a repair or refund.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, covers defective products under warranty. Filing with the Consumer Commission ensures the company is held accountable, potentially ordering repairs, replacements, or refunds."
+      },
+      {
+        "text": "Repair it yourself and pay for it",
+        "result": "❌ You bear unnecessary costs.",
+        "correct": false
+      },
+      {
+        "text": "Threaten the company with a lawsuit",
+        "result": "❌ Ineffective without legal action.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Divorce Settlement Dispute",
+    "description": "Your spouse refuses to pay alimony as ordered by the court during your divorce proceedings.",
+    "icon": "Heart",
+    "gradient": "from-pink-400 via-red-500 to-purple-600",
+    "options": [
+      {
+        "text": "File an execution petition in the Family Court",
+        "result": "✅ Court enforces the alimony order.",
+        "correct": true,
+        "explanation": "Under the Code of Civil Procedure, an execution petition in the Family Court enforces court-ordered alimony. The court can attach the spouse’s assets or salary to ensure compliance, protecting your financial rights."
+      },
+      {
+        "text": "Confront your spouse directly",
+        "result": "❌ May escalate conflict and yield no results.",
+        "correct": false
+      },
+      {
+        "text": "Do nothing and hope they pay",
+        "result": "❌ You lose entitled alimony.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Unauthorized Construction by Neighbor",
+    "description": "Your neighbor builds an illegal structure encroaching on your property without permission.",
+    "icon": "Building",
+    "gradient": "from-green-400 via-blue-500 to-teal-600",
+    "options": [
+      {
+        "text": "File an injunction suit in the Civil Court",
+        "result": "✅ Court stops construction and may order demolition.",
+        "correct": true,
+        "explanation": "Under the Code of Civil Procedure, an injunction suit in the Civil Court can halt unauthorized construction and order its removal. This legal action protects your property rights and prevents further encroachment."
+      },
+      {
+        "text": "Demolish the structure yourself",
+        "result": "❌ Illegal and may lead to criminal charges.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the encroachment",
+        "result": "❌ You lose part of your property.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Online Defamation",
+    "description": "Someone posts false and damaging statements about you online, harming your reputation.",
+    "icon": "Monitor",
+    "gradient": "from-purple-400 via-indigo-500 to-blue-600",
+    "options": [
+      {
+        "text": "File a defamation case under Section 499 IPC",
+        "result": "✅ Court investigates, and the perpetrator may be penalized.",
+        "correct": true,
+        "explanation": "Section 499 of the IPC defines defamation as harming someone’s reputation. Filing a criminal defamation case can lead to prosecution, while a civil suit may award damages, protecting your reputation legally."
+      },
+      {
+        "text": "Post a counter-statement online",
+        "result": "❌ May escalate the issue and weaken your case.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the statements",
+        "result": "❌ Reputation damage continues.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Unfair School Fee Hike",
+    "description": "Your child’s private school raises fees excessively without justification, violating state regulations.",
+    "icon": "School",
+    "gradient": "from-blue-400 via-green-500 to-cyan-600",
+    "options": [
+      {
+        "text": "File a complaint with the State Education Department",
+        "result": "✅ Department investigates, and fees may be rolled back.",
+        "correct": true,
+        "explanation": "State Education Departments regulate private school fees under state laws. Filing a complaint ensures an investigation into the fee hike, potentially leading to its reversal or regulation, protecting parents’ rights."
+      },
+      {
+        "text": "Protest outside the school",
+        "result": "❌ May disrupt education and yield no legal outcome.",
+        "correct": false
+      },
+      {
+        "text": "Pay the increased fees",
+        "result": "❌ Unnecessary financial burden.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Non-Delivery of Online Order",
+    "description": "You paid for a product online, but it was never delivered, and the seller refuses a refund.",
+    "icon": "Truck",
+    "gradient": "from-yellow-400 via-orange-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the Consumer Disputes Redressal Commission",
+        "result": "✅ Seller is summoned, and you may get a refund.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, covers non-delivery of goods. Filing with the Consumer Commission compels the seller to refund or deliver, ensuring consumer rights are protected."
+      },
+      {
+        "text": "Keep emailing the seller",
+        "result": "❌ Ineffective and time-consuming.",
+        "correct": false
+      },
+      {
+        "text": "Accept the loss",
+        "result": "❌ You lose your money.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Illegal Electricity Disconnection",
+    "description": "Your electricity was disconnected by the utility company without notice, despite paying all bills.",
+    "icon": "Power",
+    "gradient": "from-blue-400 via-teal-500 to-green-600",
+    "options": [
+      {
+        "text": "File a complaint with the Electricity Consumer Grievance Redressal Forum",
+        "result": "✅ Forum investigates, and power is restored.",
+        "correct": true,
+        "explanation": "The Electricity Act, 2003, mandates grievance forums to address consumer issues. Filing a complaint ensures an investigation into the illegal disconnection, leading to restoration and possible compensation."
+      },
+      {
+        "text": "Pay a bribe to restore power",
+        "result": "❌ Illegal and encourages corruption.",
+        "correct": false
+      },
+      {
+        "text": "Live without electricity",
+        "result": "❌ Unnecessary hardship.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Harassment by Loan Recovery Agents",
+    "description": "Loan recovery agents harass you with abusive calls and threats for a loan you’ve already repaid.",
+    "icon": "Phone",
+    "gradient": "from-red-400 via-purple-500 to-pink-600",
+    "options": [
+      {
+        "text": "File a complaint with the RBI or local police",
+        "result": "✅ Investigation begins, and harassment stops.",
+        "correct": true,
+        "explanation": "RBI guidelines prohibit harassment by recovery agents. Filing with the RBI or police under Section 506 IPC (criminal intimidation) ensures an investigation, stopping harassment and holding the lender accountable."
+      },
+      {
+        "text": "Pay the demanded amount again",
+        "result": "❌ Unnecessary financial loss.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the calls",
+        "result": "❌ Harassment continues.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Fake Job Offer Scam",
+    "description": "You paid a recruiter for a job offer, but it was a scam, and they’ve disappeared.",
+    "icon": "Briefcase",
+    "gradient": "from-indigo-400 via-blue-500 to-purple-600",
+    "options": [
+      {
+        "text": "File a police complaint for cheating",
+        "result": "✅ FIR is filed, and an investigation begins.",
+        "correct": true,
+        "explanation": "Cheating under Section 420 IPC is a cognizable offense. Filing a police complaint initiates an investigation, potentially leading to the scammer’s arrest and recovery of your money through legal proceedings."
+      },
+      {
+        "text": "Share the scam on social media",
+        "result": "❌ Raises awareness but doesn’t recover your money.",
+        "correct": false
+      },
+      {
+        "text": "Accept the loss",
+        "result": "❌ You lose your money with no justice.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Medical Negligence by Hospital",
+    "description": "A hospital’s negligence during surgery caused you harm, and they refuse to compensate.",
+    "icon": "FileCheck",
+    "gradient": "from-green-400 via-teal-500 to-blue-600",
+    "options": [
+      {
+        "text": "File a complaint with the State Medical Council or Consumer Court",
+        "result": "✅ Investigation begins, and you may get compensation.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, and Medical Council regulations allow complaints against medical negligence. Filing with the State Medical Council or Consumer Court ensures an investigation, potentially leading to compensation or disciplinary action."
+      },
+      {
+        "text": "Protest at the hospital",
+        "result": "❌ May lead to legal issues and no resolution.",
+        "correct": false
+      },
+      {
+        "text": "Accept the harm without action",
+        "result": "❌ No compensation or justice.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Unauthorized CCTV Surveillance",
+    "description": "Your landlord installed CCTV cameras in private areas of your rented home without consent.",
+    "icon": "Camera",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a complaint with the police for privacy violation",
+        "result": "✅ Investigation begins, and cameras may be removed.",
+        "correct": true,
+        "explanation": "Unauthorized surveillance violates the right to privacy under Article 21 of the Constitution. Filing a police complaint under Section 354C IPC (voyeurism) ensures an investigation, potentially leading to the removal of cameras."
+      },
+      {
+        "text": "Remove the cameras yourself",
+        "result": "❌ May lead to legal disputes with the landlord.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the cameras",
+        "result": "❌ Violates your privacy.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "False Advertising by Company",
+    "description": "You bought a product based on false claims in an advertisement, and it doesn’t work as promised.",
+    "icon": "FileX",
+    "gradient": "from-yellow-400 via-orange-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the Consumer Disputes Redressal Commission",
+        "result": "✅ Company is summoned, and you may get a refund.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, covers misleading advertisements. Filing with the Consumer Commission ensures the company is held accountable, potentially ordering refunds or compensation for false claims."
+      },
+      {
+        "text": "Confront the company publicly",
+        "result": "❌ Ineffective and may harm your case.",
+        "correct": false
+      },
+      {
+        "text": "Accept the faulty product",
+        "result": "❌ You lose your money.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Child Custody Dispute",
+    "description": "After your divorce, your ex-spouse denies you court-ordered custody of your child.",
+    "icon": "UserPlus",
+    "gradient": "from-pink-400 via-red-500 to-purple-600",
+    "options": [
+      {
+        "text": "File a contempt petition in the Family Court",
+        "result": "✅ Court enforces the custody order.",
+        "correct": true,
+        "explanation": "A contempt petition in the Family Court enforces court-ordered custody under the Hindu Marriage Act or other family laws. The court can compel compliance, ensuring your custody rights are upheld."
+      },
+      {
+        "text": "Take the child by force",
+        "result": "❌ Illegal and may lead to criminal charges.",
+        "correct": false
+      },
+      {
+        "text": "Do nothing and hope for compliance",
+        "result": "❌ You lose custody rights.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Overcharged by Hospital",
+    "description": "A private hospital charged you exorbitant fees for treatment, far above their displayed rates.",
+    "icon": "FileCheck",
+    "gradient": "from-blue-400 via-teal-500 to-green-600",
+    "options": [
+      {
+        "text": "File a complaint with the State Health Department or Consumer Court",
+        "result": "✅ Investigation begins, and you may get a refund.",
+        "correct": true,
+        "explanation": "The Clinical Establishments Act and Consumer Protection Act, 2019, regulate hospital billing. Filing with the State Health Department or Consumer Court ensures an investigation into overcharging, potentially leading to refunds."
+      },
+      {
+        "text": "Pay the excess amount",
+        "result": "❌ Unnecessary financial loss.",
+        "correct": false
+      },
+      {
+        "text": "Protest at the hospital",
+        "result": "❌ May lead to legal issues.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Unauthorized Bank Account Freeze",
+    "description": "Your bank account was frozen without notice, despite no outstanding dues or legal issues.",
+    "icon": "Lock",
+    "gradient": "from-red-400 via-purple-500 to-blue-600",
+    "options": [
+      {
+        "text": "File a complaint with the Banking Ombudsman",
+        "result": "✅ Ombudsman investigates, and the account may be unfrozen.",
+        "correct": true,
+        "explanation": "The Banking Ombudsman, under RBI guidelines, addresses wrongful account freezes. Filing a complaint ensures an investigation, potentially leading to the account being unfrozen and compensation for inconvenience."
+      },
+      {
+        "text": "Open a new bank account",
+        "result": "❌ Doesn’t resolve the issue with the frozen account.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the freeze",
+        "result": "❌ Limits your access to funds.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Fake News Published About You",
+    "description": "A local newspaper published false information about you, damaging your reputation.",
+    "icon": "FileText",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a defamation suit under Section 499 IPC",
+        "result": "✅ Court investigates, and you may get compensation.",
+        "correct": true,
+        "explanation": "Section 499 of the IPC defines defamation. Filing a criminal or civil defamation suit ensures an investigation into the false publication, potentially leading to compensation or a public apology, protecting your reputation."
+      },
+      {
+        "text": "Confront the newspaper editor",
+        "result": "❌ Ineffective and may escalate conflict.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the article",
+        "result": "❌ Reputation damage continues.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Illegal Tree Cutting on Your Property",
+    "description": "A neighbor cut down trees on your property without permission, causing environmental damage.",
+    "icon": "File",
+    "gradient": "from-green-400 via-teal-500 to-blue-600",
+    "options": [
+      {
+        "text": "File a complaint with the Forest Department or police",
+        "result": "✅ Investigation begins, and penalties may be imposed.",
+        "correct": true,
+        "explanation": "The Forest Conservation Act, 1980, and state laws protect trees. Filing with the Forest Department or police under Section 426 IPC (mischief) ensures an investigation, potentially leading to penalties or compensation."
+      },
+      {
+        "text": "Cut trees on their property in retaliation",
+        "result": "❌ Illegal and may lead to criminal charges.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the incident",
+        "result": "❌ Environmental damage goes unaddressed.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Harassment by Local Goons",
+    "description": "Local goons are threatening you to extort money, and the police are unresponsive.",
+    "icon": "ShieldAlert",
+    "gradient": "from-red-400 via-orange-500 to-yellow-600",
+    "options": [
+      {
+        "text": "File a complaint with the SP or use the state’s online grievance portal",
+        "result": "✅ Investigation begins, and protection is provided.",
+        "correct": true,
+        "explanation": "Extortion is a cognizable offense under Section 384 IPC. If local police are unresponsive, escalating to the SP or using online portals ensures an FIR is filed, leading to an investigation and protection."
+      },
+      {
+        "text": "Pay the goons to stop harassment",
+        "result": "❌ Encourages criminal behavior.",
+        "correct": false
+      },
+      {
+        "text": "Do nothing and hope they stop",
+        "result": "❌ Threats continue, risking your safety.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Fraudulent Travel Agency",
+    "description": "You paid a travel agency for a holiday package, but they canceled it without refunding.",
+    "icon": "MapPin",
+    "gradient": "from-blue-400 via-green-500 to-teal-600",
+    "options": [
+      {
+        "text": "File a complaint with the Consumer Disputes Redressal Commission",
+        "result": "✅ Agency is summoned, and you may get a refund.",
+        "correct": true,
+        "explanation": "The Consumer Protection Act, 2019, covers fraudulent services. Filing with the Consumer Commission compels the agency to refund or compensate, ensuring consumer rights are protected."
+      },
+      {
+        "text": "Protest at the agency’s office",
+        "result": "❌ May lead to legal issues and no refund.",
+        "correct": false
+      },
+      {
+        "text": "Accept the loss",
+        "result": "❌ You lose your money.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Unfair Exam Malpractice Allegation",
+    "description": "Your university accused you of cheating in an exam without evidence and threatens to fail you.",
+    "icon": "Book",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a writ petition in the High Court",
+        "result": "✅ Court reviews the case, and the allegation may be overturned.",
+        "correct": true,
+        "explanation": "A writ petition under Article 226 of the Constitution allows the High Court to review unfair university actions. Filing ensures a fair investigation into the allegation, protecting your academic rights."
+      },
+      {
+        "text": "Protest at the university",
+        "result": "❌ May harm your academic record.",
+        "correct": false
+      },
+      {
+        "text": "Accept the failure",
+        "result": "❌ Unfairly affects your academic future.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Illegal Water Supply Cutoff",
+    "description": "Your municipal water supply was cut off without notice, despite paying all bills.",
+    "icon": "Droplet",
+    "gradient": "from-blue-400 via-teal-500 to-green-600",
+    "options": [
+      {
+        "text": "File a complaint with the Municipal Corporation or Public Grievance Cell",
+        "result": "✅ Investigation begins, and water is restored.",
+        "correct": true,
+        "explanation": "Municipal laws require notice before water cutoff. Filing with the Municipal Corporation or Public Grievance Cell ensures an investigation, leading to restoration and possible compensation for the illegal cutoff."
+      },
+      {
+        "text": "Pay a bribe to restore water",
+        "result": "❌ Illegal and encourages corruption.",
+        "correct": false
+      },
+      {
+        "text": "Live without water",
+        "result": "❌ Unnecessary hardship.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Identity Theft Online",
+    "description": "Someone used your personal details to open a fraudulent bank account, causing financial loss.",
+    "icon": "UserCheck",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a complaint with the Cyber Crime Cell",
+        "result": "✅ Investigation begins, and the fraudster may be prosecuted.",
+        "correct": true,
+        "explanation": "Identity theft is a crime under the IT Act, 2000. Reporting to the Cyber Crime Cell initiates an investigation, potentially leading to the fraudster’s prosecution and mitigation of your financial losses."
+      },
+      {
+        "text": "Share your details publicly to warn others",
+        "result": "❌ Risks further misuse of your data.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the issue",
+        "result": "❌ Financial losses continue.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Unfair Property Tax Assessment",
+    "description": "The municipal corporation assessed your property tax at an exorbitant rate without justification.",
+    "icon": "File",
+    "gradient": "from-yellow-400 via-orange-500 to-red-600",
+    "options": [
+      {
+        "text": "File an appeal with the Municipal Taxation Tribunal",
+        "result": "✅ Tribunal reviews the assessment, and tax may be corrected.",
+        "correct": true,
+        "explanation": "Municipal laws allow appeals against unfair tax assessments. Filing with the Municipal Taxation Tribunal ensures a review, potentially correcting the tax rate and protecting your financial rights."
+      },
+      {
+        "text": "Pay the excess tax",
+        "result": "❌ Unnecessary financial burden.",
+        "correct": false
+      },
+      {
+        "text": "Protest at the municipal office",
+        "result": "❌ Ineffective and may lead to legal issues.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Fake Charity Donation Scam",
+    "description": "You donated to a charity online, but it was a scam, and the organizers disappeared.",
+    "icon": "Heart",
+    "gradient": "from-pink-400 via-red-500 to-purple-600",
+    "options": [
+      {
+        "text": "File a police complaint for cheating",
+        "result": "✅ FIR is filed, and an investigation begins.",
+        "correct": true,
+        "explanation": "Cheating under Section 420 IPC is a cognizable offense. Filing a police complaint initiates an investigation, potentially leading to the scammer’s arrest and recovery of your donation through legal proceedings."
+      },
+      {
+        "text": "Warn others on social media",
+        "result": "❌ Raises awareness but doesn’t recover your money.",
+        "correct": false
+      },
+      {
+        "text": "Accept the loss",
+        "result": "❌ You lose your money with no justice.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Unfair Termination of Lease",
+    "description": "Your landlord terminated your lease early without valid reason, demanding you vacate immediately.",
+    "icon": "Home",
+    "gradient": "from-green-400 via-cyan-500 to-blue-600",
+    "options": [
+      {
+        "text": "File a suit in the Rent Control Court",
+        "result": "✅ Court reviews the termination, and you may stay or get compensation.",
+        "correct": true,
+        "explanation": "State Rent Control Acts protect tenants from unfair eviction. Filing a suit in the Rent Control Court ensures a review of the termination, potentially allowing you to stay or receive compensation."
+      },
+      {
+        "text": "Vacate the property immediately",
+        "result": "❌ Unfairly disrupts your life.",
+        "correct": false
+      },
+      {
+        "text": "Confront the landlord aggressively",
+        "result": "❌ May lead to legal disputes.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Unauthorized Bank Loan in Your Name",
+    "description": "Someone took a loan in your name using forged documents, and the bank is demanding repayment.",
+    "icon": "IndianRupee",
+    "gradient": "from-red-400 via-purple-500 to-blue-600",
+    "options": [
+      {
+        "text": "File a police complaint for identity theft and inform the Banking Ombudsman",
+        "result": "✅ Investigation begins, and the loan may be nullified.",
+        "correct": true,
+        "explanation": "Identity theft is a crime under the IT Act, 2000. Filing a police complaint and informing the Banking Ombudsman ensures an investigation, potentially nullifying the fraudulent loan and protecting your credit."
+      },
+      {
+        "text": "Pay the loan to avoid legal action",
+        "result": "❌ Unnecessary financial loss.",
+        "correct": false
+      },
+      {
+        "text": "Ignore the bank’s notices",
+        "result": "❌ Damages your credit score.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "title": "Discrimination at Workplace",
+    "description": "You face caste-based discrimination at your workplace, affecting your promotions and work environment.",
+    "icon": "UserMinus",
+    "gradient": "from-purple-400 via-blue-500 to-indigo-600",
+    "options": [
+      {
+        "text": "File a complaint with the National Commission for Scheduled Castes or Labour Commissioner",
+        "result": "✅ Investigation begins, and action is taken.",
+        "correct": true,
+        "explanation": "The Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989, addresses caste discrimination. Filing with the National Commission or Labour Commissioner ensures an investigation, protecting your rights and ensuring a fair workplace."
+      },
+      {
+        "text": "Confront colleagues directly",
+        "result": "❌ May escalate conflict and yield no results.",
+        "correct": false
+      },
+      {
+        "text": "Quit your job",
+        "result": "❌ Unfairly affects your career.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "title": "Illegal Construction Noise",
+    "description": "A nearby construction site operates late at night, violating noise pollution laws and disturbing your peace.",
+    "icon": "AlertTriangle",
+    "gradient": "from-yellow-400 via-orange-500 to-red-600",
+    "options": [
+      {
+        "text": "File a complaint with the Pollution Control Board or police",
+        "result": "✅ Investigation begins, and noise is regulated.",
+        "correct": true,
+        "explanation": "The Noise Pollution (Regulation and Control) Rules, 2000, restrict nighttime construction noise. Filing with the Pollution Control Board or police ensures an investigation, potentially stopping the violation and restoring peace."
+      },
+      {
+        "text": "Confront the construction workers",
+        "result": "❌ Ineffective and may lead to conflict.",
+        "correct": false
+      },
+      {
+        "text": "Tolerate the noise",
+        "result": "❌ Affects your health and peace.",
+        "correct": false
+      }
+    ]
+  }
+]

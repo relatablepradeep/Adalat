@@ -14,6 +14,8 @@ import Blog from './Components/naya-samuday/Blog';
 import Lawyer from './Components/Lawyer/Lawyer';
 import Ruling from './Components/Courts/Ruling';
 import Schemes from './Components/Schemes/Schemes';
+import Bot from './Components/Naya-bot/Bot';
+import Game from './Components/Game/Game';
 
 
 
@@ -35,6 +37,8 @@ const router = createBrowserRouter(
       <Route path="kanooni-madad/lawyers" element={<Lawyer/>}/>
       <Route path="kanooni-khabrein/rulings" element={<Ruling/>}/>
       <Route path="kanooni-khabrein/Schemes" element={<Schemes/>}/>
+      <Route path="bot" element={<Bot/>}/>
+      <Route path="/kanun-seekho/gamified" element={<Game/>}/>
 
 
       
