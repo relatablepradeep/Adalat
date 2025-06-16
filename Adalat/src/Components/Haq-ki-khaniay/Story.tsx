@@ -10,18 +10,18 @@ export default function Story() {
   const allStories = [
     {
       id: 1,
-      title: "Understanding Basic Rights ⚖️",
-      description: "Learn about your fundamental rights guaranteed by the Indian Constitution. This comprehensive guide explains how the judiciary system protects these rights and what avenues you have for seeking justice.",
-      videoUrl: "https://youtu.be/fnLn8u9BXBs",
-      lawyer: { name: "Adv. Priya Sharma", phone: "+91-98765-43210", speciality: "Constitutional Law" },
+      title: "Life in jail",
+      description: "Life in jail for Indian man convicted of doctor's rape and murder | BBC News",
+      videoUrl: "https://youtu.be/G5vRbuchLr0",
+      lawyer: { name: "", phone: "", speciality: "Constitutional Law" },
       category: "rights"
     },
     {
       id: 2,
-      title: "How to File an FIR 🚨",
-      description: "A step-by-step guide to filing a First Information Report. Learn about the process, your rights during filing, and what to expect afterward.",
-      videoUrl: "https://youtu.be/dQw4w9WgXcQ",
-      lawyer: { name: "Adv. Rahul Verma", phone: "+91-98765-43211", speciality: "Criminal Law" },
+      title: "bharati vs state",
+      description: "Kesavananda Bharati v. State of Kerala",
+      videoUrl: "https://youtu.be/rP7bi7E89ZQ",
+      lawyer: { name: "", phone: "", speciality: "state vs public" },
       category: "criminal"
     },
     {
@@ -178,26 +178,27 @@ export default function Story() {
       <div className="relative z-10">
         {/* Hero Section */}
         <div className={`pt-16 pb-12 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8">
-              <Sparkles className="text-pink-400" size={20} />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-400 font-semibold">
-                Haq Ki Kahaniyan – Stories That Inspire Justice
-              </span>
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-400 animate-pulse">
-              हक़ के खानिया
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/80 mb-4 font-medium">
-              Your guide to judiciary literacy in India ⚖️
-            </p>
-            
-            <p className="text-lg text-cyan-300 italic">
-              Every right reclaimed is a story worth telling ✨
-            </p>
-          </div>
+         <div className="max-w-7xl mx-auto px-4 text-center">
+  <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8">
+    <Sparkles className="text-pink-400" size={20} />
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-400 font-semibold">
+      Legal Spotlight
+    </span>
+  </div>
+
+  <h1 className="text-6xl md:text-8xl font-bold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-400 animate-pulse">
+    Know Your Rights, Know the Verdicts
+  </h1>
+
+  <p className="text-xl md:text-2xl text-white/80 mb-4 font-medium">
+    Your guide to legal literacy and landmark judgments in India ⚖️
+  </p>
+
+  <p className="text-lg text-cyan-300 italic">
+    From *State vs Public* to iconic rulings — justice has a story. ✨
+  </p>
+</div>
+
         </div>
 
         {/* Stories Grid */}
