@@ -2237,7 +2237,10 @@
                                                                                         }
                                                                                     ]
                                                                                 },
-                                                                                [
+
+
+
+                                                                                
                                                                                     {
                                                                                         "article_number": 241,
                                                                                         "article_name": "High Courts for Union territories",
@@ -3813,7 +3816,7 @@
                                   }
                                 ]
                               },
-                              [
+                              
                                 {
                                     "article_number": 361,
                                     "article_name": "Protection of President and Governors and Rajpramukhs",
@@ -4455,7 +4458,7 @@
                                                 "amendments": []
                                             }
       ] 
-    ]
-]
+    
+
 
  }

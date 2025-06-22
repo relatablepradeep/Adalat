@@ -328,51 +328,126 @@ const Laws = () => {
     );
   };
 
+
+
+
+
+
+
+
+
   const renderSpecial = (data) => {
-    const page = pages.special;
-    const pageData = paginate(data, page);
-    return (
-      <>
-        {pageData.map((act, i) => (
-          <div key={i} className="mb-8 p-6 rounded-xl bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-white/10 backdrop-blur-sm">
-            <h3 className="text-2xl font-bold text-yellow-300 mb-3">{act.name}</h3>
-            <p className="text-gray-300 mb-4 leading-relaxed">{act.prompt}</p>
-            <p className="text-gray-300 mb-4">
-              <strong className="text-white">Purpose:</strong> {act.details.purpose}
-            </p>
-            
-            <h4 className="text-lg font-semibold text-orange-300 mb-3">Key Provisions:</h4>
-            <ul className="list-disc list-inside space-y-1 mb-4 ml-4">
-              {act.details.key_provisions.map((prov, j) => (
-                <li key={j} className="text-gray-300">{prov}</li>
-              ))}
-            </ul>
-            
-            <h4 className="text-lg font-semibold text-orange-300 mb-3">Punishments:</h4>
-            <ul className="list-disc list-inside space-y-1 mb-4 ml-4">
-              {act.details.punishments.map((p, j) => (
-                <li key={j} className="text-gray-300">{p}</li>
-              ))}
-            </ul>
-            
-            <div className="bg-black/20 p-4 rounded-lg">
-              <h4 className="text-lg font-semibold text-yellow-300 mb-3">Additional Information:</h4>
-              <p className="text-gray-300 mb-2">
-                <strong className="text-white">Authorities:</strong> {act.details.additional_information.enforcing_authorities.join(', ')}
-              </p>
-              <p className="text-gray-300 mb-2">
-                <strong className="text-white">Amendments:</strong> {act.details.additional_information.amendments.join(', ')}
-              </p>
-              <p className="text-gray-300">
-                <strong className="text-white">Notable Cases:</strong> {act.details.additional_information.notable_cases.join(', ')}
-              </p>
-            </div>
+  const page = pages.ipc;
+  const pageData = paginate(data, page);
+
+  return (
+    <>
+      {pageData.map((acts, k) => (
+        <div
+          key={k}
+          className="mb-8 p-6 rounded-xl bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-white/10 backdrop-blur-sm"
+        >
+          <h3 className="text-2xl font-bold text-red-300 mb-2">Chapter: {acts.name}</h3>
+          <h4 className="text-xl font-semibold text-orange-300 mb-4">{acts.prompt}</h4>
+
+          <div className="ml-4 mb-4 p-4 rounded-lg bg-black/20">
+            {acts.details?.purpose && (
+              <h5 className="text-lg font-semibold text-white mb-2">
+                Purpose: <span className="text-gray-300 font-normal">{acts.details.purpose}</span>
+              </h5>
+            )}
+
+            {!!acts.details?.key_provisions?.length && (
+              <div className="mb-3">
+                <h5 className="text-lg font-semibold text-white">Key Provisions:</h5>
+                <ul className="list-disc list-inside text-gray-300">
+                  {acts.details.key_provisions.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {!!acts.details?.punishments?.length && (
+              <div className="mb-3">
+                <h5 className="text-lg font-semibold text-white">Punishments:</h5>
+                <ul className="list-disc list-inside text-gray-300">
+                  {acts.details.punishments.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {acts.details?.additional_information && (
+              <div className="space-y-3 mt-4">
+                {!!acts.details.additional_information.enforcing_authorities?.length && (
+                  <div>
+                    <h5 className="text-lg font-semibold text-white">Enforcing Authorities:</h5>
+                    <ul className="list-disc list-inside text-gray-300">
+                      {acts.details.additional_information.enforcing_authorities.map((auth, idx) => (
+                        <li key={idx}>{auth}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {!!acts.details.additional_information.amendments?.length && (
+                  <div>
+                    <h5 className="text-lg font-semibold text-white">Amendments:</h5>
+                    <ul className="list-disc list-inside text-gray-300">
+                      {acts.details.additional_information.amendments.map((amendment, idx) => (
+                        <li key={idx}>{amendment}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {!!acts.details.additional_information.notable_cases?.length && (
+                  <div>
+                    <h5 className="text-lg font-semibold text-white">Notable Cases:</h5>
+                    <ul className="list-disc list-inside text-gray-300">
+                      {acts.details.additional_information.notable_cases.map((caseItem, idx) => (
+                        <li key={idx}>{caseItem}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-        ))}
-        {renderPageNumbers(data.length, page, (p) => setPages((prev) => ({ ...prev, special: p })))}
-      </>
-    );
-  };
+        </div>
+      ))}
+      {renderPageNumbers(data.length, page, (p) => setPages((prev) => ({ ...prev, ipc: p })))}
+    </>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const renderTax = (data) => {
     if (!data.administrative_and_tax_laws) return <p className="text-gray-300">No data available</p>;

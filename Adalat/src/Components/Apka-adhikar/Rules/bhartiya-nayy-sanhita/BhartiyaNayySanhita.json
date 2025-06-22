@@ -1644,8 +1644,10 @@
               }
             ]
           },
-          {
-            "chapters": [
+
+
+
+          
               {
                 "chapter_number": 20,
                 "chapter_name": "Offences Relating to Coins, Currency Notes, Bank Notes, and Government Stamps",
@@ -1702,10 +1704,10 @@
                   }
                 ]
               }
-            ]
-          },
-          {
-            "chapters": [
+            ,
+
+
+          
               {
                 "chapter_number": 21,
                 "chapter_name": "Offences Against Public Justice",
@@ -1777,7 +1779,6 @@
                   }
                 ]
               }
-            ]
-          }
+            
         ]
       }
