@@ -1,6 +1,4 @@
-
 # Adalat – Legal Literacy
-
 Adalat is a digital platform designed to bridge the gap between the common people and the Indian legal system. It primarily aims to support individuals who lack knowledge about their legal rights, constitutional protections, and the overall judicial process. Whether someone is unfamiliar with the law, struggling to find legal help, or facing language barriers, Adalat offers essential tools and resources in one accessible place.
 
 Key Features:
