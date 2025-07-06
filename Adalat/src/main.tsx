@@ -24,7 +24,7 @@ import Game from './Components/Game/Game';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<Home />} />
+      <Route index element={<Laws />} />
       <Route path='/Laws' element={<Laws />} />
       <Route path='/kanooni-madad/courts' element={<Courts/>}/>
       <Route path='/kanun-seekho/sawal-jawab' element={<Ques/>}/>

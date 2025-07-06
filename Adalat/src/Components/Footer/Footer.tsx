@@ -57,15 +57,15 @@ export default function Footer() {
                 Empowering legal literacy for everyone. Our mission is to make legal knowledge accessible and understandable to all citizens.
               </p>
               <div className="flex space-x-4 mt-4">
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/relatablepradeep/" target="_blank" rel="noopener noreferrer"
                   className="bg-gray-900 bg-opacity-30 p-2 rounded-full text-cyan-300 hover:text-white hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1">
                   <FaLinkedin className="text-lg sm:text-xl" />
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://github.com/relatablepradeep" target="_blank" rel="noopener noreferrer"
                   className="bg-gray-900 bg-opacity-30 p-2 rounded-full text-cyan-300 hover:text-white hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1">
                   <FaGithub className="text-lg sm:text-xl" />
                 </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://x.com/relatablepradeep" target="_blank" rel="noopener noreferrer"
                   className="bg-gray-900 bg-opacity-30 p-2 rounded-full text-cyan-300 hover:text-white hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1">
                   <FaTwitter className="text-lg sm:text-xl" />
                 </a>
@@ -152,16 +152,17 @@ export default function Footer() {
                     123 Legal Avenue, Delhi, India 110001
                   </p>
                 </div>
-                <div className="flex items-center text-cyan-200 group">
+                {/* <div className="flex items-center text-cyan-200 group">
                   <FaPhone className="mr-3 text-pink-400 group-hover:scale-125 transition-transform duration-300" />
-                  <a href="tel:+911234567890" className="group-hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                    +91 12345 67890
+                  <a href="okie" className="group-hover:text-white transition-colors duration-300 text-sm sm:text-base">
+                  5454
+                   
                   </a>
-                </div>
+                </div> */}
                 <div className="flex items-center text-cyan-200 group">
                   <FaEnvelope className="mr-3 text-pink-400 group-hover:scale-125 transition-transform duration-300" />
                   <a href="mailto:info@adalat.org" className="group-hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                    info@adalat.org
+                   relatablepradeep@gmail.com
                   </a>
                 </div>
                 <div className="mt-6">
@@ -203,7 +204,7 @@ export default function Footer() {
           {/* Copyright & Policy Links */}
           <div className="mt-8 pt-4 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
             <p className="text-cyan-200 mb-4 md:mb-0 text-sm sm:text-base text-center md:text-left">
-              © {year} Adalat. <span className="inline-flex items-center">Made with <FaHeart className="text-pink-500 mx-1 animate-pulse" /> in India</span>
+              © {year} Adalat <span className="inline-flex items-center"> <FaHeart className="text-pink-500 mx-1 animate-pulse" /> </span>
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-2 sm:gap-4 text-xs sm:text-sm">
               <Link to="/terms" className="text-cyan-200 hover:text-white transition-colors duration-300">

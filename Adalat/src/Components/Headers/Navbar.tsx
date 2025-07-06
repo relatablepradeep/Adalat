@@ -63,7 +63,7 @@ export default function Navbar() {
 
           {/* Logo and Name (Center) */}
           <div className="flex-1 flex justify-center transform hover:scale-105 transition-transform duration-300">
-            <NavLink to="/" className="flex items-center">
+            <NavLink to="#" className="flex items-center">
               <img 
                 className="h-36 w-48 mr-3 drop-shadow-lg hover:drop-shadow-xl transition-all duration-300" 
                 src={Logo} 
@@ -80,15 +80,15 @@ export default function Navbar() {
 
           {/* Social Media Icons (Right) */}
           <div className="flex items-center gap-4">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/relatablepradeep/" target="_blank" rel="noopener noreferrer"
               className="text-cyan-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:rotate-6">
               <FaLinkedin className="text-xl" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/relatablepradee" target="_blank" rel="noopener noreferrer"
               className="text-cyan-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:rotate-6">
               <FaGithub className="text-xl" />
             </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://x.com/relatablepradee" target="_blank" rel="noopener noreferrer"
               className="text-cyan-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:rotate-6">
               <FaTwitter className="text-xl" />
             </a>
@@ -106,11 +106,11 @@ export default function Navbar() {
             }>
               <span className="mr-1">⚖️</span> Aapke Adhikar
             </NavLink>
-            <NavLink to="/Translate" className={({ isActive }) =>
+            {/* <NavLink to="/Translate" className={({ isActive }) =>
               `flex items-center text-lg font-medium transition-all duration-300 px-3 py-2 mx-1 rounded-lg ${isActive ? "bg-pink-600 text-white shadow-lg shadow-pink-500/50" : "text-gray-200 hover:bg-purple-600 hover:text-white hover:shadow-md hover:shadow-purple-500/50 hover:-translate-y-1"}`
             }>
               <span className="mr-1">🤖</span> Nyay Bot
-            </NavLink>
+            </NavLink> */}
             
             {/* Dropdown for Kanun Seekho */}
             <div 
@@ -128,11 +128,11 @@ export default function Navbar() {
               </button>
               {(hoverDropdown === 'learn' || openDropdown === 'learn') && (
                 <div className="absolute left-0 mt-1 w-64 bg-gray-900 bg-opacity-95 rounded-lg shadow-lg z-100 border border-purple-500 backdrop-blur-sm animate-fadeIn transform origin-top">
-                  <NavLink to="/kanun-seekho/sawal-jawab" className={({ isActive }) =>
+                  {/* <NavLink to="/kanun-seekho/sawal-jawab" className={({ isActive }) =>
                     `flex items-center text-base font-medium transition-all duration-300 px-4 py-3 hover:bg-indigo-600 text-gray-200 hover:text-white hover:pl-6 ${isActive ? "bg-indigo-700" : ""} rounded-t-lg`
                   }>
                     <span className="mr-2">🧠</span> Sawal-Jawab
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink to="/kanun-seekho/scenarios" className={({ isActive }) =>
                     `flex items-center text-base font-medium transition-all duration-300 px-4 py-3 hover:bg-indigo-600 text-gray-200 hover:text-white hover:pl-6 ${isActive ? "bg-indigo-700" : ""}`
                   }>
@@ -154,30 +154,30 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
               ref={el => dropdownRefs.current['help'] = el}
             >
-              <button 
+              {/* <button 
                 onClick={() => toggleDropdown('help')}
                 className={`flex items-center text-lg font-medium transition-all duration-300 px-3 py-2 mx-1 rounded-lg ${openDropdown === 'help' || hoverDropdown === 'help' ? 'bg-purple-600 text-white shadow-md shadow-purple-500/50' : 'text-gray-200 hover:bg-purple-600 hover:text-white hover:shadow-md hover:shadow-purple-500/50 hover:-translate-y-1'}`}
               >
                 <span className="mr-1">🆘</span> Kanooni Madad 
                 <FaCaretDown className={`ml-1 transition-transform duration-300 ${openDropdown === 'help' || hoverDropdown === 'help' ? 'rotate-180' : ''}`} />
-              </button>
+              </button> */}
               {(hoverDropdown === 'help' || openDropdown === 'help') && (
                 <div className="absolute left-0 mt-1 w-64 bg-gray-900 bg-opacity-95 rounded-lg shadow-lg z-10 border border-purple-500 backdrop-blur-sm animate-fadeIn transform origin-top">
-                  <NavLink to="/kanooni-madad/lawyers" className={({ isActive }) =>
+                  {/* <NavLink to="/kanooni-madad/lawyers" className={({ isActive }) =>
                     `flex items-center text-base font-medium transition-all duration-300 px-4 py-3 hover:bg-indigo-600 text-gray-200 hover:text-white hover:pl-6 ${isActive ? "bg-indigo-700" : ""} rounded-t-lg`
                   }>
                     <span className="mr-2">👨‍⚖️</span> Vakil Khojo
-                  </NavLink>
+                  </NavLink> */}
                   {/* <NavLink to="/kanooni-madad/courts" className={({ isActive }) =>
                     `flex items-center text-base font-medium transition-all duration-300 px-4 py-3 hover:bg-indigo-600 text-gray-200 hover:text-white hover:pl-6 ${isActive ? "bg-indigo-700" : ""}`
                   }>
                     <span className="mr-2">🏢</span> Najdeeki Court
                   </NavLink> */}
-                  <NavLink to="/kanooni-madad/aid" className={({ isActive }) =>
+                  {/* <NavLink to="/kanooni-madad/aid" className={({ isActive }) =>
                     `flex items-center text-base font-medium transition-all duration-300 px-4 py-3 hover:bg-indigo-600 text-gray-200 hover:text-white hover:pl-6 ${isActive ? "bg-indigo-700" : ""} rounded-b-lg`
                   }>
                     <span className="mr-2">🧾</span> Muft Madad / NGO Help
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               )}
             </div>
@@ -232,21 +232,21 @@ export default function Navbar() {
           {/* Mobile Menu */}
           <div className={`md:hidden py-4 overflow-hidden transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
             <div className="flex flex-col">
-              <NavLink to="/" className={({ isActive }) =>
+              {/* <NavLink to="/" className={({ isActive }) =>
                 `flex items-center text-lg font-medium py-2 px-4 my-1 rounded transition-all duration-300 ${isActive ? "bg-pink-600 text-white shadow-md shadow-pink-500/30" : "text-gray-200 hover:bg-purple-600 hover:pl-6"}`
               } onClick={toggleMenu}>
                 <span className="mr-2">🏠</span> Home
-              </NavLink>
+              </NavLink> */}
               <NavLink to="/aapke-adhikar" className={({ isActive }) =>
                 `flex items-center text-lg font-medium py-2 px-4 my-1 rounded transition-all duration-300 ${isActive ? "bg-pink-600 text-white shadow-md shadow-pink-500/30" : "text-gray-200 hover:bg-purple-600 hover:pl-6"}`
               } onClick={toggleMenu}>
                 <span className="mr-2">⚖️</span> Aapke Adhikar
               </NavLink>
-              <NavLink to="/nyay-bot" className={({ isActive }) =>
+              {/* <NavLink to="/nyay-bot" className={({ isActive }) =>
                 `flex items-center text-lg font-medium py-2 px-4 my-1 rounded transition-all duration-300 ${isActive ? "bg-pink-600 text-white shadow-md shadow-pink-500/30" : "text-gray-200 hover:bg-purple-600 hover:pl-6"}`
               } onClick={toggleMenu}>
                 <span className="mr-2">🤖</span> Nyay Bot
-              </NavLink>
+              </NavLink> */}
               
               {/* Kanun Seekho Section */}
               <button 
@@ -260,11 +260,11 @@ export default function Navbar() {
               </button>
               
               <div className={`bg-gray-800 pl-8 overflow-hidden transition-max-height duration-500 ease-in-out ${openDropdown === 'learn' ? 'max-h-screen' : 'max-h-0'}`}>
-                <NavLink to="/kanun-seekho/sawal-jawab" className={({ isActive }) =>
+                {/* <NavLink to="/kanun-seekho/sawal-jawab" className={({ isActive }) =>
                   `flex items-center text-base font-medium py-2 px-4 my-1 rounded transition-all duration-300 ${isActive ? "bg-indigo-700 text-white" : "text-gray-200 hover:bg-indigo-600 hover:pl-6"}`
                 } onClick={toggleMenu}>
                   <span className="mr-2">🧠</span> Sawal-Jawab
-                </NavLink>
+                </NavLink> */}
                 <NavLink to="/kanun-seekho/scenarios" className={({ isActive }) =>
                   `flex items-center text-base font-medium py-2 px-4 my-1 rounded transition-all duration-300 ${isActive ? "bg-indigo-700 text-white" : "text-gray-200 hover:bg-indigo-600 hover:pl-6"}`
                 } onClick={toggleMenu}>
@@ -278,7 +278,7 @@ export default function Navbar() {
               </div>
               
               {/* Kanooni Madad Section */}
-              <button 
+              {/* <button 
                 onClick={() => toggleDropdown('help')}
                 className={`flex items-center justify-between text-lg font-medium py-2 px-4 my-1 text-gray-200 hover:bg-purple-600 rounded transition-all duration-300 ${openDropdown === 'help' ? 'bg-purple-700' : ''}`}
               >
@@ -286,9 +286,9 @@ export default function Navbar() {
                   <span className="mr-2">🆘</span> Kanooni Madad
                 </div>
                 <FaCaretDown className={`transition-transform duration-300 ${openDropdown === 'help' ? 'rotate-180' : ''}`} />
-              </button>
+              </button> */}
               
-              <div className={`bg-gray-800 pl-8 overflow-hidden transition-max-height duration-500 ease-in-out ${openDropdown === 'help' ? 'max-h-screen' : 'max-h-0'}`}>
+              {/* <div className={`bg-gray-800 pl-8 overflow-hidden transition-max-height duration-500 ease-in-out ${openDropdown === 'help' ? 'max-h-screen' : 'max-h-0'}`}>
                 <NavLink to="/kanooni-madad/lawyers" className={({ isActive }) =>
                   `flex items-center text-base font-medium py-2 px-4 my-1 rounded transition-all duration-300 ${isActive ? "bg-indigo-700 text-white" : "text-gray-200 hover:bg-indigo-600 hover:pl-6"}`
                 } onClick={toggleMenu}>
@@ -304,7 +304,7 @@ export default function Navbar() {
                 } onClick={toggleMenu}>
                   <span className="mr-2">🧾</span> Muft Madad / NGO Help
                 </NavLink>
-              </div>
+              </div> */}
               
               {/* Kanooni Khabrein Section */}
               <button 

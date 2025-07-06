@@ -153,7 +153,7 @@ export default function LegalBlog() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 animate-pulse"></div>
         <div className="relative px-6 py-12 text-center">
           <h1 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-4 animate-fade-in">
-            LegalVibes
+            Naya Samuday
           </h1>
           <p className="text-xl text-purple-200 font-medium mb-2">Your space for legal discussions ⚖️</p>
           <p className="text-sm text-purple-300">Share thoughts, get insights, stay informed ✨</p>
